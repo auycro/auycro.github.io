@@ -10,6 +10,7 @@ Well. I just try instagram api from stackoverflow question.
 link
 </a>
 
+(Also, it takes a few seconds to loading)
 <!-- css -->
 <style type="text/css">
   img {
