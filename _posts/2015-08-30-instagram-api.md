@@ -1,7 +1,11 @@
 ---
-layout: default
-title: Auycro | Playground
+layout: post
+title: "Auycro, Launches Site"
+date: 2015-08-30
 ---
+
+Well.
+
 <!-- css -->
 <style type="text/css">
   img {
