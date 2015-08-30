@@ -1,0 +1,34 @@
+---
+layout: default
+title: Auycro | Playground
+---
+<!-- css -->
+<style type="text/css">
+  img {
+    max-width: 100px;
+    margin: 2px;
+  }
+</style>
+<script type="text/javascript">
+// whateverorigin.org app service
+var URL = "http://whateverorigin.org/get?url=" + encodeURIComponent("http://instagram.com/auycro/media");
+jQuery(function ($) {
+    $.ajax({
+        url: URL,
+        dataType: "jsonp", // this is important
+        cache: false,
+        success: function (response) {
+            var data = response.contents;
+            for (var i = 0; i < data.items.length; i++) {
+                var image = '<img src="'+data.items[i].images.low_resolution.url+'" alt="" />';
+                $(image).appendTo(".images");
+            }
+        },
+        error: function () {
+            var error = "<p>error processing ajax request</p>";
+            $(error).appendTo(".images");
+        }
+    });
+});
+</script>
+<div class="images"></div>
