@@ -21,7 +21,8 @@ Also, it takes a few seconds to loading :) <br>
 </style>
 <script type="text/javascript">
 // whateverorigin.org app service
-var URL = "http://whateverorigin.org/get?url=" + encodeURIComponent("http://instagram.com/auycro/media");
+//var URL = "http://whateverorigin.org/get?url=" + encodeURIComponent("http://instagram.com/auycro/media");
+var URL = encodeURIComponent("http://instagram.com/auycro/media");
 jQuery(function ($) {
     $.ajax({
         url: URL,
@@ -30,9 +31,7 @@ jQuery(function ($) {
         success: function (response) {
             var data = response.contents;
             for (var i = 0; i < data.items.length; i++) {
-                var image = '<img src="'+data.items[i].images.low_resolution.url+'" alt="" />';
-                if ((i%4)===0)
-                	image = '<br>'+image;
+                var image = '<img src="'+data.items[i].images.standard_resolution.url+'" alt="" />';
                 $(image).appendTo(".images");
             }
         },
