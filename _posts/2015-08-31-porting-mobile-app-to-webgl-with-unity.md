@@ -53,4 +53,4 @@ here is pros and cons of "Porting Mobile App to WebGL with Unity" in my opinion:
 <br>
 <br>
 
-<p class="lead"> In conclusion, I think that it's still worth to try to build a game with WebGL. When you found more problems, you can learn a lot more to find the solutions. Cheers!!! </p>
+<p class="lead"> In conclusion... I think that it's still worth to try to build a game with WebGL. When you found more problems, you can learn a lot more to find the solutions. Cheers!!! </p>
