@@ -21,8 +21,8 @@ Also, it takes a few seconds to loading :) <br>
 </style>
 <script type="text/javascript">
 // whateverorigin.org app service
-//var URL = "http://whateverorigin.org/get?url=" + encodeURIComponent("http://instagram.com/auycro/media");
-var URL = encodeURIComponent("http://instagram.com/auycro/media");
+var URL = "http://whateverorigin.org/get?url=" + encodeURIComponent("http://instagram.com/auycro/media");
+//var URL = encodeURIComponent("http://instagram.com/auycro/media");
 jQuery(function ($) {
     $.ajax({
         url: URL,
