@@ -4,6 +4,8 @@ title: "Instagram API"
 date: 2015-08-30
 ---
 
+<div class="row marketing">
+
 Well. I just try instagram api from stackoverflow question.
 
 <a href="http://stackoverflow.com/questions/24556445/display-instagram-photos-from-different-account-to-my-webpage">
@@ -43,3 +45,5 @@ jQuery(function ($) {
 });
 </script>
 <div class="images"></div>
+
+</div>

@@ -4,8 +4,9 @@ title: "Porting Mobile App to WebGL with Unity"
 date: 2015-08-31
 ---
 
-About one month of trying to convert Mobile App to WebGL with Unity, <br>
-here is pros and cons of "Porting Mobile App to WebGL with Unity" in my opinion: <br>
+<p class="lead"> About one month of trying to convert Mobile App to WebGL with Unity, <br>
+here is pros and cons of "Porting Mobile App to WebGL with Unity" in my opinion: <br> </p>
+<br>
 <br>
 
 <div class="jumbotron">
@@ -49,4 +50,7 @@ here is pros and cons of "Porting Mobile App to WebGL with Unity" in my opinion:
 
 </div>
 
-In conclusion, I think that it's still worth to try to build a game with WebGL. When you found more problems, you can learn a lot more to find the solutions. Cheers!!!
+<br>
+<br>
+
+<p class="lead"> In conclusion, I think that it's still worth to try to build a game with WebGL. When you found more problems, you can learn a lot more to find the solutions. Cheers!!! </p>
