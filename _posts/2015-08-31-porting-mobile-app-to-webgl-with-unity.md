@@ -8,7 +8,7 @@ About one month of trying to convert Mobile App to WebGL with Unity, <br>
 here is pros and cons of "Porting Mobile App to WebGL with Unity" in my opinion: <br>
 <br>
 
-<div class="jumbotron" class="text-left">
+<div class="jumbotron">
 
 <h3> Pros: </h3> <br>
 <em> 1. You don't need to create it from scratch. </em> <br>
@@ -19,7 +19,7 @@ here is pros and cons of "Porting Mobile App to WebGL with Unity" in my opinion:
 <p class="text-left"> Now I mainly use C# for both WebGL, iOS and Android!! This is so impressive. For a guy who come from Window Application like me, it really easy to learn. But anyway you still need to build some plugin for communication with native app like StorePlugin(Objective-C for iOS, Java for Android and Javascript for WebGL). </p>
 <br>
 <br>
-3. You can do a test only on Chrome or Firefox (or IE or Safari) <br>
+<em> 3. You can do a test only on Chrome or Firefox (or IE or Safari) </em> <br>
 <p class="text-left"> To build a browser game, you don't need to worry about OS, Mobile-Model or Screen size that much. Based on the internet user, all you need to do is make it happen on Chrome, then Firefox and so on. </p>
 
 </div>
