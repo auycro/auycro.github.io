@@ -21,8 +21,7 @@ here is pros and cons of "Porting Mobile App to WebGL with Unity" in my opinion:
 <h4> 1. You won't know what will be happen till it's error. </h4>
 <p class="text-left"> First, when I was assigned to this project, the Unity5 is on the Beta version. No one knows exactly how to switch from Mobile App to WebGL. So, it's quite hard for me to scheduling time that this project could be finish. </p>
 
-<h4> 2. The things,which run on Mobile App smoothly, <br/>
-	it's not mean no problem with WebGL <h4>
+<h4> 2. The things,which run on Mobile App smoothly, it's not mean no problem with WebGL <h4>
 <p class="text-left"> The limitation of using Unity WebGL is really made me headache. First, I need to convert TCP-IP Network to WebSocket, which you need to write it all by javascript!! (I tried to implement it with C# library but it's not really work when build the application.) Then, you can't use thread in WebGL so I need to rip-it off the project. It's just an example for what you need to do when you converting to WebGL. </p>
 
 <h4> 3. Builing & Loading time </h4>
