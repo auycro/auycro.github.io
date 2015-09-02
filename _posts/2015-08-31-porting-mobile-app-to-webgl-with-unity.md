@@ -2,6 +2,7 @@
 layout: post
 title: "Porting Mobile App to WebGL with Unity"
 date: 2015-08-31
+keywords: ",unity,webgl,pros,cons"
 ---
 
 <p class="lead"> About one month of trying to convert Mobile App to WebGL with Unity, <br/>
@@ -33,4 +34,4 @@ here is pros and cons of "Porting Mobile App to WebGL with Unity" in my opinion:
 <h4> 5. It's really difficult to debug in Editor. </h4>
 <p class="text-left"> Even you think that you already fix everything in Unity editor, you still meet errors in javascript console. For now, I already experienced the error about CORS, HTTPRequest, iFrame, Cache, local-storage, WebSocket.... which all of these you will meet after you built the WebGL. </p>
 
-<p class="lead"> In conclusion... You need to prepare a lot to convert Mobile Game to the WebGL. Even, it's stil on the early stage , I think that it's still worth to try to build a game with WebGL. When you found more problems, you can learn a lot more to find the solutions. Cheers!!! </p>
+<p class="lead"> In conclusion... You need to prepare a lot to convert Mobile Game to the WebGL( Not exactly easy as switch platform from iOS to Android). Even, Unity's WebGL is still on the early stage, it's still worth to try to build a game with WebGL. When you found more problems, you can learn more to find the solutions. Cheers!!! </p>

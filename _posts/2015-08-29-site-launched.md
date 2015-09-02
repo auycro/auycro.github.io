@@ -2,6 +2,7 @@
 layout: post
 title: "Launches Site"
 date: 2015-08-29
+keywords: ""
 ---
 
 Finally I've finished deploy this website. <br/>

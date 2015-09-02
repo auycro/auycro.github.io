@@ -1,4 +1,5 @@
 <script>
+  /*
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '428369614016642',
@@ -14,4 +15,16 @@
      js.src = "//connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
+  */
+  $(document).ready(function() {
+    $.ajaxSetup({ cache: true });
+    $.getScript('//connect.facebook.net/en_US/sdk.js', function(){
+      FB.init({
+        appId: '428369614016642',
+        version: 'v2.3' // or v2.0, v2.1, v2.0
+      });     
+      $('#loginbutton,#feedbutton').removeAttr('disabled');
+      FB.getLoginStatus(updateStatusCallback);
+    });
+  });
 </script>
