@@ -11,7 +11,7 @@ This tutorial will explain about client side only.</p>
 <h3>Part1</h3>
 <h4>Prepare Javascript plugin function [link](http://docs.unity3d.com/Manual/webgl-interactingwithbrowserscripting.html)</h4>
 <p class="text-left"> 
-Here is my Javascript plugin for WebSocket "MyPlugin.jslib"
+Here is my Javascript plugin for WebSocket "MyPlugin.jslib".
 </p>
 
 ```javascript
@@ -33,7 +33,7 @@ var MyPlugin = {
     }; 
     window.websocket.onmessage = function(evt) {
       console.log('receive: '+evt.data);
-      //We will call "WebSocket" GameObject's "void Receive(string msg)" function in Unity
+      //In Unity, we will call "void Receive(string msg)" from "WebSocket"(GameObject).
       SendMessage ('WebSocket', 'Receive', evt.data); 
     }; 
     window.websocket.onerror = function(evt) {
@@ -53,6 +53,6 @@ var MyPlugin = {
 ```
 
 <p class="text-left"> 
- Now, we already have 4 functions (Hello,InitWebSocket,Send,State) to use in Unity <br/>
- In the next part, we will show you how to create GameObject and Script.
+ Now, we already have 4 functions (Hello,InitWebSocket,Send,State) to use in Unity. <br/>
+ In the next part, I will show you how to create GameObject and Script.
 </p>

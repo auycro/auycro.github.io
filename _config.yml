@@ -1,4 +1,13 @@
+# Author
 name: auycro
+
+# Link
 production_url : http://auycro.github.io
 permalink: /blog/:year/:month/:day/:title
-markdown: redcarpet
+
+# Conversion
+markdown: kramdown
+
+# Markdown
+kramdown:
+  input: GFM
