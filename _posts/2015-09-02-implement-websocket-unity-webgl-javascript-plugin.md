@@ -14,7 +14,7 @@ This tutorial will explain about client side only.</p>
 Here is my Javascript plugin for WebSocket "MyPlugin.jslib"
 </p>
 
-{% highlight javascript linenos %}
+```javascript
 
 var MyPlugin = {
   Hello: function() {
@@ -50,11 +50,9 @@ var MyPlugin = {
   }
 }
 
-{% endhighlight %}
+```
 
 <p class="text-left"> 
  Now, we already have 4 functions (Hello,InitWebSocket,Send,State) to use in Unity <br/>
  In the next part, we will show you how to create GameObject and Script.
-</p>
-
 </p>

@@ -1,4 +1,4 @@
 name: auycro
 production_url : http://auycro.github.io
 permalink: /blog/:year/:month/:day/:title
-markdown: kramdown
+markdown: redcarpet
