@@ -47,7 +47,9 @@ var MyPlugin = {
   State: function() {
     return window.websocket.readyState;
   }
-}
+};
+
+mergeInto(LibraryManager.library, MyPlugin);
 {% endhighlight %}
 
 <p class="text-left"> 
