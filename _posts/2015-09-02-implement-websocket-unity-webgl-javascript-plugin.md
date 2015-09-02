@@ -14,8 +14,7 @@ This tutorial will explain about client side only.</p>
 Here is my Javascript plugin for WebSocket "MyPlugin.jslib".
 </p>
 
-```javascript
-
+{% highlight javascript %}
 var MyPlugin = {
   Hello: function() {
     window.alert("Hello, world!"); //For Testing Connection
@@ -49,8 +48,7 @@ var MyPlugin = {
     return window.websocket.readyState;
   }
 }
-
-```
+{% endhighlight %}
 
 <p class="text-left"> 
  Now, we already have 4 functions (Hello,InitWebSocket,Send,State) to use in Unity. <br/>
@@ -58,5 +56,5 @@ var MyPlugin = {
 </p>
 
 Reference:
-[webgl-interactingwithbrowserscripting] (http://docs.unity3d.com/Manual/webgl-interactingwithbrowserscripting.html)
+[webgl-interactingwithbrowserscripting](http://docs.unity3d.com/Manual/webgl-interactingwithbrowserscripting.html)
 [WebSocket-echo](https://www.websocket.org/echo.html)
