@@ -5,7 +5,10 @@ date: 2015-08-31
 keywords: ",unity,webgl,pros,cons"
 ---
 
-<p> About one month of trying to convert Mobile App to WebGL with Unity... </p>
+<p> About one month of trying to convert Mobile App to WebGL with Unity.</p>
+.
+.
+.
 
 <p class="lead"> Here is pros and cons of "Porting Mobile App to WebGL with Unity" in my opinion: </p>
 
