@@ -11,3 +11,4 @@ markdown: kramdown
 # Markdown
 kramdown:
   input: GFM
+  enable_coderay: true

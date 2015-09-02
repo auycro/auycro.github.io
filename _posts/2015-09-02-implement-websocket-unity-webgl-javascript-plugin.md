@@ -32,7 +32,7 @@ var MyPlugin = {
     }; 
     window.websocket.onmessage = function(evt) {
       console.log('receive: '+evt.data);
-      //In Unity, we will call "void Receive(string msg)" from "WebSocket"(GameObject).
+      //we will call "void Receive(string msg)" from "WebSocket"(GameObject).
       SendMessage ('WebSocket', 'Receive', evt.data); 
     }; 
     window.websocket.onerror = function(evt) {
@@ -58,3 +58,4 @@ var MyPlugin = {
 Reference:
 [webgl-interactingwithbrowserscripting](http://docs.unity3d.com/Manual/webgl-interactingwithbrowserscripting.html)
 [WebSocket-echo](https://www.websocket.org/echo.html)
+[WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)
