@@ -8,4 +8,4 @@ keywords: ""
 Finally I've finished deploy this website...
 
 <p> Honestly, it's really easy to write the post. <br/>
-Thank you to [Jekyll](http://jekyllrb.com) :) </p>
+Thank you to [Jekyll](http://jekyllrb.com) </p> :)
