@@ -21,7 +21,7 @@ Here is my Javascript plugin for WebSocket, "WebSocket.jslib".
  In the next part, I will show you how to create GameObject and Script.
 </p>
 
-[Go Part2](http://auycro.github.io/blog/2015/09/02/implement-websocket-unity-webgl-javascript-plugin2/)
+[Go Part2](http://auycro.github.io/blog/2015/09/05/implement-websocket-unity-webgl-javascript-plugin2/)
 
 Reference:
 [webgl-interactingwithbrowserscripting](http://docs.unity3d.com/Manual/webgl-interactingwithbrowserscripting.html)

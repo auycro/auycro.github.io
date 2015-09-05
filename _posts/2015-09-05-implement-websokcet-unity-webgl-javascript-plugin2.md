@@ -31,7 +31,7 @@ Then, put the WebSocket.jslib file into the asset folder.
 Now your project should similar to the below picture.
 </p>
 
-[Project Screenshot]({{ site.url }}/assets/WebGLWebSocket.jpg)
+<img src="({{ site.url }}/assets/WebGLWebSocket.png)"></img>
 
 <p class="text-left"> 
 Just build it and test on our browser!!! 
