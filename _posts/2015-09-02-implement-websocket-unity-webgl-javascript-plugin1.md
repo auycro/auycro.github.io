@@ -11,15 +11,17 @@ This guide will introduce you how to implement Unity's WebGL with WebSocket.
 <h4>Prepare Javascript plugin function</h4>
 <p class="text-left"> 
 First we will prepare the WebSocket library in javascript. <br/>
-Here is my Javascript plugin for WebSocket, "MyPlugin.jslib".
+Here is my Javascript plugin for WebSocket, "WebSocket.jslib".
 </p>
 
 <script src="https://gist.github.com/auycro/3b00e3c05b26d284ec77.js"></script>
 
 <p class="text-left"> 
- As you can see, we already have 4 functions (Hello,InitWebSocket,Send,State) to use in Unity. <br/>
+ As you can see, we already have 5 functions (Hello,InitWebSocket,Send,State,Close) to use in Unity. <br/>
  In the next part, I will show you how to create GameObject and Script.
 </p>
+
+[Go Part2](http://auycro.github.io/blog/2015/09/02/implement-websocket-unity-webgl-javascript-plugin2/)
 
 Reference:
 [webgl-interactingwithbrowserscripting](http://docs.unity3d.com/Manual/webgl-interactingwithbrowserscripting.html)
