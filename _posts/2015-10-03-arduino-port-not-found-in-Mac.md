@@ -25,7 +25,7 @@ After google the problem, it was a driver problem in MacOSX with Arduino. If you
 
 PS. I was connected Arduino when follow this instruction.
 
-Bravo!! My Mac already found Arduino port. Now, it's time for say helo to Arduino :)
+Bravo!! My Mac already found Arduino port. Now, it's time to say hello to Arduino :)
 
 <img src="{{ site.url }}/assets/20151003-3.png" class="img-responsive" >	
 
