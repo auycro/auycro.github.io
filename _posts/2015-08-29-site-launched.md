@@ -7,7 +7,7 @@ keywords: ""
 
 Finally I've finished deploy this website...
 
-<p> Honestly, it's really easy to write the post. </p> 
+Honestly, it's really easy to write the post.
 
-Thank you to [Jekyll](http://jekyllrb.com) <br/>
+Thank you to [Jekyll](http://jekyllrb.com) 
 :)
