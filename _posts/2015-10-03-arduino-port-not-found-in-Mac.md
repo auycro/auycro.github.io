@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Launches Site"
+title: "Arduino's port not found in MacOSX"
 date: 2015-10-03
-keywords: ""
+keywords: ",Arduino,MaCOSX,error,port"
 ---
 
 Arduino, port not found in Mac...
