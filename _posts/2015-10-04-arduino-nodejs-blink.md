@@ -30,5 +30,4 @@ Then, please install SerialPort module in your project by the following command
 Reference:
 
 [SerialPort](https://www.npmjs.com/package/serialport)
-
 [Arduino's Serial.print](https://www.arduino.cc/en/Serial/Print)
