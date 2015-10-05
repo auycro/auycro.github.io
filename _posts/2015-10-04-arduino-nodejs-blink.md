@@ -23,7 +23,9 @@ In this tutorial, I assume that you hae some experience with NodeJs and also try
 <script src="https://gist.github.com/auycro/66ad03add77505ba442c.js"></script>
 <br/>
 4. Let's test your Arduino :)
+<img src="{{ site.url }}/assets/20151004-1.png" class="img-responsive" >
+<br/>
 
 Reference: <br/>
 1. [SerialPort](https://www.npmjs.com/package/serialport)
-2. [Arduino's Serial.print](https://www.arduino.cc/en/Serial/Print)
+2. [Arduino's Serial.print()](https://www.arduino.cc/en/Serial/Print)
