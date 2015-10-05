@@ -27,7 +27,6 @@ Then, please install SerialPort module in your project by the following command
 
 4. Let's test your Arduino :)
 
-Reference:
-
-[SerialPort](https://www.npmjs.com/package/serialport)
+Reference: <br/>
+[SerialPort](https://www.npmjs.com/package/serialport)  <br/>
 [Arduino's Serial.print](https://www.arduino.cc/en/Serial/Print)
