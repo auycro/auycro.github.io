@@ -10,15 +10,16 @@ This tutorial is about [NodeJS](https://nodejs.org/en/) with [Arduino](https://w
 You can learn how to use Arduino to send and receive data with NodeJS here.
 In this tutorial, I assume that you hae some experience with NodeJs and also try npm a little before.
 
-1. First, I will start from NodeJS. This tutorial, I use ['SerialPort'](https://www.npmjs.com/package/serialport) in NodeJS to connect with Arduino. Then, please install SerialPort module in your project by the following command
+1. First, I will start from NodeJS. This tutorial, I use ['SerialPort'](https://www.npmjs.com/package/serialport) in NodeJS to connect with Arduino. 
+Then, please install SerialPort module in your project by the following command
 ```shell
  npm install serialport
 ```
-
+<br/>
 2. Create NodeJS script. <script src="https://gist.github.com/auycro/71210f1787be4c228e8e.js"></script>
-
+<br/>
 3. Then I will go to Arduino script.<script src="https://gist.github.com/auycro/66ad03add77505ba442c.js"></script>
-
+<br/>
 4. Let's test your Arduino :)
 
 Reference: <br/>
