@@ -26,6 +26,6 @@ In this tutorial, I assume that you hae some experience with NodeJs and also try
 <img src="{{ site.url }}/assets/20151004-1.png" class="img-responsive" >
 <br/>
 
-Reference: <br/>
+Reference:
 1. [SerialPort](https://www.npmjs.com/package/serialport)
 2. [Arduino's Serial.print()](https://www.arduino.cc/en/Serial/Print)
