@@ -12,7 +12,8 @@ In this tutorial, I assume that you hae some experience with NodeJs and also try
 
 1. First, I will start from NodeJS. This tutorial, I use ['SerialPort'](https://www.npmjs.com/package/serialport) in NodeJS to connect with Arduino.
 Then, please install SerialPort module in your project by the following command
-{% highlight bash %}  npm install serialport {% endhighlight %}
+
+{% highlight shell %}  npm install serialport {% endhighlight %}
 
 2. Create NodeJS script.
 
@@ -25,5 +26,7 @@ Then, please install SerialPort module in your project by the following command
 4. Let's test your Arduino :)
 
 Reference:
+
 [SerialPort](https://www.npmjs.com/package/serialport)
+
 [Arduino's Serial.print](https://www.arduino.cc/en/Serial/Print)
