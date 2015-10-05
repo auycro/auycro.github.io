@@ -25,5 +25,5 @@ In this tutorial, I assume that you hae some experience with NodeJs and also try
 4. Let's test your Arduino :)
 
 Reference: <br/>
-[SerialPort](https://www.npmjs.com/package/serialport)  <br/>
-[Arduino's Serial.print](https://www.arduino.cc/en/Serial/Print)
+1. [SerialPort](https://www.npmjs.com/package/serialport)
+2. [Arduino's Serial.print](https://www.arduino.cc/en/Serial/Print)
