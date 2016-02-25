@@ -2,14 +2,16 @@
 <html>
 	{% include head.html %}
 	<body>
-		{% include fbplugin.html %}
-		<div class="bg-1 container">
-		{% include header.html %}
-		<!--div class="jumbotron"></div-->
-		<div class="row marketing">
-		{{ content }}
+	   	<div class="bg-1">
+			{% include fbplugin.html %}
+			<div class="container">
+			{% include header.html %}
+			<!--div class="jumbotron"></div-->
+			<div class="row marketing">
+			{{ content }}
+			</div>
+			{% include footer.html %}
+			</div><!-- /.container -->
 		</div>
-		{% include footer.html %}
-		</div><!-- /.container -->
 	</body>
 </html>
