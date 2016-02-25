@@ -7,6 +7,6 @@ section {
 
 .bg-1 {
     background: url('https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/12407196_133895780319492_1852870637_n.jpg') no-repeat center center fixed;
-    color:#fff;
     background-size:cover;
+    color:#fff;
 }
