@@ -16,10 +16,10 @@ We'll create layout with ScrollView in Unity....
 <!--img src="{{ site.url }}/assets/20151004-1.png" class="img-responsive" -->
 
 <br/>
-3. Then, lets puts the item which we want to show in ScrollView. Add "Layout Element". And, set width and height (Preferred Width, Preferred Height) 
+3. Then, lets puts the item which we want to show in "GridContent". Add "Layout Element". And, set width and height (Preferred Width, Preferred Height). And copy 2~3 more for testing.
 <!--img src="{{ site.url }}/assets/20151004-1.png" class="img-responsive" -->
 
 <br/>
-4. 
-<img src="{{ site.url }}/assets/20151004-1.png" class="img-responsive" >
+4. Test run. So, you might has the item as below picture.
+<!--img src="{{ site.url }}/assets/20151004-1.png" class="img-responsive" -->
 <br/>
