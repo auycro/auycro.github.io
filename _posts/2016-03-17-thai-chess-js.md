@@ -12,5 +12,4 @@ Then, I clone chess.js and mix with chessboard.js example to build the ThaiChess
 
 You can try in the following link :)
 
-[ThaiChess]
-(https://rawgit.com/auycro/glowing-system-thchess/master/chessjs/index.html)
+[ThaiChess](https://rawgit.com/auycro/glowing-system-thchess/master/chessjs/index.html)
