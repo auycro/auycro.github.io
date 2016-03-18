@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Thai Chess JS"
-date: 2016-03-18
+date: 2016-03-17
 keywords: ",Javascript,Thai,Chess"
 ---
 
