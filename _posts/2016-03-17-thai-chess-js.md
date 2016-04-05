@@ -14,4 +14,4 @@ You can try in the following link :)
 
 [ThaiChess](https://auycro.github.io/thchess)
 
-[Online](https://frozen-river-90193.herokuapp.com/)
+[ThaiChess(OnlineVersion)](https://frozen-river-90193.herokuapp.com/)
