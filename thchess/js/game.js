@@ -112,6 +112,7 @@ var updateStatus = function() {
 };
 
 var cfg = {
+  pieceTheme: 'img/chesspieces/thai_piece/{piece}.png',
   draggable: true,
   dropOffBoard: 'snapback',
   //position: 'start',
