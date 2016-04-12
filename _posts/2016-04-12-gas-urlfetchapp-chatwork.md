@@ -17,3 +17,6 @@ But this times, I tried to combine Chatwork's servicesAPI Token with Google App 
 You can find out the script here :)
 
 <script src="https://gist.github.com/auycro/ab7a5bcf7548fc4746217a96906648ec.js"></script>
+
+[Apps Script:URL Fetch App](https://developers.google.com/apps-script/reference/url-fetch/#classes)
+[Chatwork](https://www.chatwork.com/)
