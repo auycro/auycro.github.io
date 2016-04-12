@@ -9,5 +9,5 @@ Finally I've finished deploy this website...
 
 Honestly, it's really easy to write the post.
 
-Thank you to [Jekyll](http://jekyllrb.com) 
+Thank you to [Github](https://github.com/) and [Jekyll](http://jekyllrb.com) 
 :)
