@@ -66,6 +66,7 @@ Basic
 	   ------------
        [1,2,3,4,5,7,8]
 ```
+
 	- Radix sort
 	  :compare digit in list, re-sorting by order
 	- Shell sort
