@@ -24,17 +24,17 @@ Basic
 	  :divide to smallest unit, compare item, merge back 
 	- Heap Sort
 	  :create heap table,swap to satisfy heap
-	  ```
-	  8,5,7,4,1,2,3
-	 
-          +-- 8
-          |   +--5
-	  |      +--4
-	  |      +--1
-	  |   +--7
-	  |      +--2
-	  |      +--3
-	  ```
+```
+8,5,7,4,1,2,3
+ 
++-- 8
+|   +--5
+|      +--4
+|      +--1
+|   +--7
+|      +--2
+|      +--3
+```
 	  :swap top heap with last unsort,delete last item, swap to satisfy heap,loop...
 	```
 	   3,5,7,4,1,2,[8]
