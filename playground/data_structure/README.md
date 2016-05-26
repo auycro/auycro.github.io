@@ -25,17 +25,18 @@ Basic
 	- Heap Sort
 	  :create heap table,swap to satisfy heap
 	  ```
-	   8,5,7,4,1,2,3
+	  8,5,7,4,1,2,3
 	 
-    +-- 8
-		|   +--5
-		|      +--4
-		|      +--1
-		|   +--7
-		|      +--2
-		|      +--3
+          +-- 8
+          |   +--5
+	  |      +--4
+	  |      +--1
+	  |   +--7
+	  |      +--2
+	  |      +--3
 	  ```
 	  :swap top heap with last unsort,delete last item, swap to satisfy heap,loop...
+	```
 	   3,5,7,4,1,2,[8]
            3
 		5     7
@@ -62,7 +63,8 @@ Basic
        ------------
 	   1,[2,3,4,5,7,8]
 	   ------------
-       [1,2,3,4,5,7,8]	   
+       [1,2,3,4,5,7,8]
+       ```
 	- Radix sort
 	  :compare digit in list, re-sorting by order
 	- Shell sort
