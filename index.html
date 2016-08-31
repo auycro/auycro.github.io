@@ -5,7 +5,7 @@ title: Auycro
 <!-- h1>Hello World</h1 -->
 
 <ul class="posts">
-  {% for post in site.posts %}
+  {% for post in site.posts limit:10 %}
     <li>
       <a href="{{ post.url }}">{{ post.title }}</a>
       {{ post.excerpt }}
