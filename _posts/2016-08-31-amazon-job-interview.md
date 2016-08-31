@@ -21,11 +21,11 @@ After 2 weeks passed, I got an email that I got an opportunity to have job inter
 
 For interview at big IT company like Google, Facebook and Amazon,
 I knew that I do need a practice in programming, data structure and some algorithm.
-So, I read and do some exercise when I hearded about this opportunity from a site  
-[GeekForFeek](http://www.geeksforgeeks.org/),[CareerCup](https://www.careercup.com/) 
-and read a book [Cracking the Coding Interviews](https://www.amazon.com/Cracking-Coding-Interview-Programming-Questions/dp/0984782850).
+After I hearded about this opportunity,I do some practice in a site like  
+[GeekForFeek](http://www.geeksforgeeks.org/) and [CareerCup](https://www.careercup.com/).
+And I also read [Cracking the Coding Interviews](https://www.amazon.com/Cracking-Coding-Interview-Programming-Questions/dp/0984782850).
 
-And this is the real thing with I found on interview:
+And this is what I found on interview:
 
 1. You need to writing on Whiteboard to describe about your ideas, opinion and answer.
 2. All you have for programming is notepad :)
@@ -35,7 +35,8 @@ And this is the real thing with I found on interview:
  - Write how the stack work (push, pop)
  - Write down the insert function in Heap
 
-Because I did some practice in Java, I tried to answer it all in Java also.
-And I can finish it all in terminal. (Use vim as editor and compile it with javac)
+I did some practice in Java, then I tried to answer it all in Java also.
+The reason behind is I can finished some tasks by using terminal only.
+(Use vim as editor and compile it with javac)
 
 And that's it... I got rejected from Amazon.
