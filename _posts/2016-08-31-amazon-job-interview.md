@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Amazon Job Interview"
+prelude: "A job interview experience with biggest cloud company"
 date: 2016-08-31
 keywords: ",Interview,Job,Amazon,Career"
 ---
