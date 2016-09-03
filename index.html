@@ -8,8 +8,8 @@ title: Auycro
   {% for post in site.posts limit:10 %}
     <li>
       <h3>{{ post.title }}</h3>
-      <span class="frontpage-bydate">{{ post.date | date_to_string }}</span>
-      <span class="frontpage-prelude">{{ post.prelude}}</span>
+      <span class="frontpage-bydate">{{ post.date | "%B %-d, %Y" }}</span><br/>
+      <span class="frontpage-prelude">{{ post.prelude}}</span><br/>
       <a href="{{ post.url }}">Continue Reading →</a>
       <!-- {{ post.excerpt }} -->
     </li>
