@@ -10,3 +10,13 @@ section {
     background-size:cover;
     color:#fff;
 }
+
+.frontpage-bydate {
+    font-size: 16px;
+    margin: 0;
+    color: #999;
+}
+
+.frontpage-prelude {
+    margin-bottom: 20px;
+}
