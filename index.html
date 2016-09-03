@@ -7,8 +7,10 @@ title: Auycro
 <ul class="posts">
   {% for post in site.posts limit:10 %}
     <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
-      {{ post.excerpt }}
+      <h4>{{ post.title }}</h4>
+      <span>{{ post.prelude}}</span>
+      <a href="{{ post.url }}">Continue Reading →</a>
+      <!-- {{ post.excerpt }} -->
     </li>
   {% endfor %}
 </ul>
