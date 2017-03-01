@@ -3,6 +3,7 @@ layout: post
 title: "Detect number in sentence with Regex"
 date: 2017-03-02
 keywords: ",Linguistic,Regular Expression,RegEx,Programming"
+prelude: "Here I write about the problem about detecting number pattern in sentence."
 ---
 
 Recently I do solve a problem about detecting number pattern in sentence.
