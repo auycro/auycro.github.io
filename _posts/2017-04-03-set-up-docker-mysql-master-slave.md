@@ -65,7 +65,7 @@ so I will prepare the setting file for both environment in separate folder.
         ```  
     - init-user.sql (for creating user when build the Docker containner)
         ```
-        CREATE USER 'root'@'%' IDENTIFIED BY 'rootdb';
+        CREATE USER 'root'@'%' IDENTIFIED BY '{your root password}';
         GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION; 
         ```  
 2. Builing Time
