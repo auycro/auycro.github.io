@@ -69,7 +69,7 @@ so I will prepare the setting file for both environment in separate folder.
         GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION; 
         ```  
 2. Builing Time
-    - For Master
+    - For MASTER
         1. Build containner by 
         ```
         $ bash build.sh
@@ -82,3 +82,24 @@ so I will prepare the setting file for both environment in separate folder.
         ```
         $ bash exec-sql.sh
         ```
+        4. Check log binary and position
+          Now we need only File,Position for setting in Slave. 
+        ```
+        $mysql> SHOW MASTER STATUS\G
+        ....
+        File: master-bin.000001
+        Position: 1512
+        ....
+        ```
+    - For SLAVE
+        1. We will do 1~3 as same as we did in MASTER.
+        2. Then, Setting MASTER for SLAVE DB
+        ```
+        
+        ```
+        
+    - Extra
+    ```
+    $ docker exec -ti db_master 'mysql' -uroot -p{root password} -e "SHOW MASTER STATUS\G" | grep File |awk '{print $2}'
+    $ docker exec -ti db_master 'mysql' -uroot -p{root password} -e "SHOW MASTER STATUS\G" | grep Position |awk '{print $2}'
+    ```
