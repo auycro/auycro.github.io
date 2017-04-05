@@ -5,8 +5,8 @@ date: 2017-04-03
 keywords: ",Docker,MySQL,Replication,DevOps"
 ---
 
-For this instruction, I will create 2 MySQL containner to use as Master - Slave.
-The master and slave environment is dependence from  each other,
+For this instruction, I will create 2 MySQL containner to use as Master - Slave.<br/>
+The master and slave environment is dependence from  each other,<br/>
 so I will prepare the setting file for both environment in separate folder.
 
 1. Prepare Setting Files:<br/>
