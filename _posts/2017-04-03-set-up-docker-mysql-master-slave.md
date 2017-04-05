@@ -64,7 +64,7 @@ mysql-docker/
         - SLAVE
         Slave can be accessed on 3307 on local port
         ```
-        docker run --name db_slave -p 3306:3306 -v /var/mysql/master:/var/lib/mysql -d db-master
+        docker run --name db_slave -p 3307:3306 -v /var/mysql/slave:/var/lib/mysql -d db-slave
         ```  
     - my.cnf (MySQL's configuration files)
         - MASTER
