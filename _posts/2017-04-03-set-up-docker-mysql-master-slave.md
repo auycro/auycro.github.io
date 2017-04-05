@@ -113,9 +113,17 @@ mysql-docker/
         1. We will do 1~3 as same as we did in MASTER.
         2. Then, Setting MASTER for SLAVE DB
         ```
-        
+        $mysql> CHANGE MASTER TO master_host="{master}",master_user="root",master_password="{slave root pwd}",master_log_file="master-bin.000001",master_log_pos=1512;
         ```
-        
+        3. Start slave
+        ```
+        $mysql> START SLAVE;
+        ```
+        4. Check Slave status and process
+        ```
+        $mysql> SHOW SLAVE STATUS\G;
+        $mysql> SHOW PROCESSLIST\G;
+        ```
     - Extra
     ```
     $ docker exec -ti db_master 'mysql' -uroot -p{root password} -e "SHOW MASTER STATUS\G" | grep File |awk '{print $2}'
