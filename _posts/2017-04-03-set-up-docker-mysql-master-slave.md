@@ -8,6 +8,24 @@ keywords: ",Docker,MySQL,Replication,DevOps"
 For this instruction, I will create 2 MySQL containner to use as Master - Slave.<br/>
 The master and slave environment is dependence from  each other,<br/>
 so I will prepare the setting file for both environment in separate folder.
+```
+mysql-docker/
+|--master/
+|  |--Dockerfile
+|  |--build.sh
+|  |--exec-mysql.sh
+|  |--run.sh
+|  |--my.cnf
+|  |--init-user.sql
+|
+|--slave/
+   |--Dockerfile
+   |--build.sh
+   |--exec-mysql.sh
+   |--run.sh
+   |--my.cnf
+   |--init-user.sql   
+```
 
 1. Prepare Setting Files:<br/>
     We will prepare this following files for both master and slave environment.
