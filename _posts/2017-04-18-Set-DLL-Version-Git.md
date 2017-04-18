@@ -28,7 +28,6 @@ In this article, I will explain how to build the product number with Git Hash:
    REM Get Git hash and set to gitversion
    FOR /F "tokens=* USEBACKQ" %%A IN (`"%GIT_PATH%git.exe" rev-parse --short HEAD`) DO SET gitVersion=%%A
    ECHO %gitVersion%
-   
    REM Replace text in temp file and rename it 
    REM %1 = $(ProjectDir)
    POWERSHELL -COMMAND "(gc %1Properties\AssemblyInfo_temp.cs) -replace '\$GITVERSION\$', '%gitVersion%' | out-file %1Properties\AssemblyInfo.cs" ;
