@@ -19,8 +19,8 @@ In this article, I will explain how to build the product number with Git Hash:
  5. Do some changes in `AssemblyInfo_temp.cs` like this
    ```
    ...
-   [assembly: AssemblyVersion("1.0.*")]
-   [assembly: AssemblyInformationalVersion("$GITVERSION$")] //We will replace $GITVERSION$ to git hash code
+   [assembly: AssemblyVersion("1.0.*")] //This make version number as auto increment
+   [assembly: AssemblyInformationalVersion("$GITVERSION$")] //Here we will replace $GITVERSION$ with git hash code
    ...
    ```
  6. Prepare batch script (update-version-number.bat) for using in post-build
