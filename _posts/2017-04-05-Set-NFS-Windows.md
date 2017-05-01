@@ -23,7 +23,7 @@ We will go to mount it in our Ubuntu Server.
 
 Mount NFS in Ubuntu Server:
   
-  1. `command`
-  2. `command`
+  1. 
+  2. `mount.nfs 192.168.25.10:/Developer test_share_folder/`
   
 ps. need to update again about command
