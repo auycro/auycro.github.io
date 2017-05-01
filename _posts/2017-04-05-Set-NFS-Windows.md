@@ -23,6 +23,6 @@ We will go to mount it in our Ubuntu Server.
 
 Mount NFS in Ubuntu Server:
   
-  1. Create folder `mkdir [folder name]`
-  2. `mount.nfs 192.168.25.10:/Developer test_share_folder/`
+  1. Create folder `mkdir [remote folder name]`
+  2. `mount.nfs [nfs host ip]:/[nfs share folder] [remote folder name]/`
   
