@@ -10,7 +10,7 @@ var mainState = {
 
         // Load Sprite
         //game.load.spritesheet('bee', 'assets/BeeSprite2.png', 96, 70);
-        game.load.spritesheet('bee', 'https://cdn.rawgit.com/auycro/auycro.github.io/8069b571/flappybee/assets/BeeSprite2.png', 96, 70);
+        game.load.spritesheet('bee', 'https://cdn.rawgit.com/auycro/auycro.github.io/8069b571/flappybee/assets/beesprite2.png', 96, 70);
         
         // Load Image
         game.load.image('pipe', 'assets/shell.png'); 
