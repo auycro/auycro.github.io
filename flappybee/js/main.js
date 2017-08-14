@@ -9,15 +9,19 @@ var mainState = {
         game.stage.backgroundColor = '#3399ff';
 
         // Load Sprite
-        game.load.spritesheet('bee', 'assets/BeeSprite2.png', 96, 70);
-
+        //game.load.spritesheet('bee', 'assets/BeeSprite2.png', 96, 70);
+        game.load.spritesheet('bee', 'https://cdn.rawgit.com/auycro/auycro.github.io/8069b571/flappybee/assets/BeeSprite2.png', 96, 70);
+        
         // Load Image
         game.load.image('pipe', 'assets/shell.png'); 
 
         // Load Sound
-        game.load.audio('bubble', 'assets/BUBBLE.WAV');
-        game.load.audio('gong', 'assets/hitShell.wav'); 
-        game.load.audio('fiew', 'assets/FiewNgo.wav'); 
+        //game.load.audio('bubble', 'assets/BUBBLE.WAV');
+        //game.load.audio('gong', 'assets/hitShell.wav'); 
+        //game.load.audio('fiew', 'assets/FiewNgo.wav'); 
+        game.load.audio('bubble', 'https://cdn.rawgit.com/auycro/auycro.github.io/8069b571/flappybee/assets/BUBBLE.WAV');
+        game.load.audio('gong', 'https://cdn.rawgit.com/auycro/auycro.github.io/8069b571/flappybee/assets/hitShell.wav'); 
+        game.load.audio('fiew', 'https://cdn.rawgit.com/auycro/auycro.github.io/8069b571/flappybee/assets/FiewNgo.wav'); 
     },
 
     create: function() { 
