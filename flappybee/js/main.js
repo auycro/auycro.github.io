@@ -19,9 +19,9 @@ var mainState = {
         //game.load.audio('bubble', 'assets/BUBBLE.WAV');
         //game.load.audio('gong', 'assets/hitShell.wav'); 
         //game.load.audio('fiew', 'assets/FiewNgo.wav'); 
-        game.load.audio('bubble', 'https://cdn.rawgit.com/auycro/auycro.github.io/8069b571/flappybee/assets/bubble.WAV');
-        game.load.audio('gong', 'https://cdn.rawgit.com/auycro/auycro.github.io/8069b571/flappybee/assets/hitshell.wav'); 
-        game.load.audio('fiew', 'https://cdn.rawgit.com/auycro/auycro.github.io/8069b571/flappybee/assets/fiewngo.wav'); 
+        game.load.audio('bubble', 'https://cdn.rawgit.com/auycro/FlappyBee/8c336f47/assets/bubble.WAV');
+        game.load.audio('gong', 'https://cdn.rawgit.com/auycro/FlappyBee/8c336f47/assets/hitshell.wav'); 
+        game.load.audio('fiew', 'https://cdn.rawgit.com/auycro/FlappyBee/8c336f47/assets/fiewngo.wav'); 
     },
 
     create: function() { 
