@@ -23,5 +23,11 @@
 	<!-- google analytics - i will not share this data with google -->
 	{% include analytics.html %}	
 	<!-- ssl redirect's script -->
-	{% include ssl-redirect.html %}	
+	<!-- 
+	     This implement is not working smootly with <a href>.
+	     <a href="/somepath"> is link to http protocol.
+	     And it made website to unfunctional when try to going to previous page.
+	     (such as press 'Back' button)
+	     {% include ssl-redirect.html %}
+	-->
 </head>
