@@ -475,7 +475,7 @@ var Chess = function(fen) {
     function add_move(board, moves, from, to, flags) {
       /* if pawn promotion */
       if (board[from].type === PAWN &&
-         (rank(to) === RANK_8 || rank(to) === RANK_1)) {
+         (rank(to) === RANK_6 || rank(to) === RANK_3)) {
           var pieces = [QUEEN, ROOK, BISHOP, KNIGHT];
           for (var i = 0, len = pieces.length; i < len; i++) {
             moves.push(build_move(board, from, to, flags, pieces[i]));
