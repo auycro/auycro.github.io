@@ -9,11 +9,11 @@ title: Auycro
     <li>
       <h4>{{ post.title }}</h4>
       <span class="frontpage-bydate">{{ post.date | date: "%B %-d, %Y" }}</span><br/><br/>
-      <span class="frontpage-prelude">{{ post.prelude}}</span><br/>
+      <span class="frontpage-prelude">{{ post.prelude}}</span>
       <a href="{{ post.url }}">Continue Reading →</a>
       <!-- {{ post.excerpt }} -->
-      <hr/>
     </li>
+    <hr/>
   {% endfor %}
 </ul>
 
