@@ -7,7 +7,7 @@ title: Auycro
 <ul class="posts">
   {% for post in site.posts limit:5 %}
     <li>
-      <h3>{{ post.title }}</h3>
+      <h4>{{ post.title }}</h4>
       <span class="frontpage-bydate">{{ post.date | date: "%B %-d, %Y" }}</span><br/><br/>
       <span class="frontpage-prelude">{{ post.prelude}}</span><br/>
       <a href="{{ post.url }}">Continue Reading →</a>
