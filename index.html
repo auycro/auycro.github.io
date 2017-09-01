@@ -5,7 +5,7 @@ title: Auycro
 <!-- h1>Hello World</h1 -->
 
 <ul class="posts">
-  {% for post in site.posts limit:10 %}
+  {% for post in site.posts limit:5 %}
     <li>
       <h3>{{ post.title }}</h3>
       <span class="frontpage-bydate">{{ post.date | date: "%B %-d, %Y" }}</span><br/><br/>
