@@ -29,3 +29,7 @@ $ P	3	DatabaseName_Foo	TableName_Bar	PRIMARY	column_name,column_birthday
 $ 3	=	1	50 1
 0 2 Peter 1998-10-22
 ```
+
+※１
+Telnetを設定方法
+https://kencenerelli.wordpress.com/2017/07/16/enabling-telnet-client-in-windows-10/ [^]
