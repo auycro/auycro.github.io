@@ -32,6 +32,7 @@ $ 3       +       3       99      1516    DAVID
 
 4. Delete <br/>
 `{2.で設定した_cmd_index}　｛operator｝ {column_length} {cond_value1}...tab separate....{cond_valueN} [LIM] [IN] [FILTER ...] D`
+※[...]に設定しなくても｛tab｝の順番が必要です。
 ```
 $ 3       =       1       99              D
 0 1 1
