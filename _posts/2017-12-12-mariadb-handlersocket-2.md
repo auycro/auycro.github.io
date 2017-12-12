@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Using handlersocket in mariadb"
-date: 2017-11-29
+date: 2017-12-12
 keywords: ",MariaDB,MySQL,HandlerSocket"
 ---
 
@@ -31,8 +31,8 @@ $ 3       +       3       99      1516    DAVID
 ```
 
 4. Delete <br/>
-`{2.で設定した_cmd_index}　｛operator｝ {column_length} {cond_value1}...tab separate....{cond_valueN} [LIM] [IN] [FILTER ...] D`
-※[...]に設定しなくても｛tab｝の順番が必要です。
+`{2.で設定した_cmd_index}　｛operator｝ {column_length} {cond_value1}...tab separate....{cond_valueN} [LIM] [IN] [FILTER ...] D`<br/>
+※`[...]`に設定しなくても｛tab｝の順番が必要です。
 ```
 $ 3       =       1       99              D
 0 1 1
@@ -44,5 +44,5 @@ $ 3       =       1       99              D
 handlersocket_plain_secret="xxxxx"
 handlersocket_plain_secret_wr="xxxxx"
 ```
-コマンドは、こちらです。
+コマンドは、こちらです。<br/>
 `A　1 {secret}`
