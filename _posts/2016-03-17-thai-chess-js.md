@@ -2,7 +2,7 @@
 layout: post
 title: "Thai Chess JS"
 date: 2016-03-17
-keywords: ",Javascript,Thai,Chess"
+keywords: ",Javascript,Thai,Chess,ThaiChess,Makruk"
 ---
 
 Here you can try Thai Chess in Javascript....
