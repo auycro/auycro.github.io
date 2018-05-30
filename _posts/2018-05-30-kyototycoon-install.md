@@ -8,7 +8,7 @@ keywords: ",Kyoto Tycoon,CentOS,Key-Value DB"
 Kyoto Tycoon
 
 What is Kyoto Tycoon? 
-[here] (http://fallabs.com/kyototycoon/)
+http://fallabs.com/kyototycoon/
 
 How to Set up?
 
