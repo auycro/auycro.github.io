@@ -2,13 +2,13 @@
 layout: post
 title: "Thai Chess JS"
 date: 2016-03-17
-keywords: ",Javascript,Thai,Chess,ThaiChess,Makruk"
+keywords: ",Javascript,Thai,Chess,ThaiChess,Makruk,หมากรุก,หมากรุกไทย"
 ---
 
 Here you can try Thai Chess in Javascript....
 
-In the last few days I just tried chessboard.js and chess.js.
-Then, I clone chess.js and mix with chessboard.js example to build the ThaiChess.js
+In the last few days I just tried chessboard.js and chess.js.<br/>
+Then, I clone it and add some new rules to build the ThaiChess.js
 
 You can try in the following link :)
 
