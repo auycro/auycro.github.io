@@ -8,7 +8,7 @@ keywords: ",unity,unity3d,webgl,websocket,javascript"
 This guide will introduce you how to implement Unity's WebGL with WebSocket.
 For now, we have already finish "WebSocket.jslib" in Part1.
 
-[Part1](http://auycro.github.io/blog/2015/09/02/implement-websocket-unity-webgl-javascript-plugin1/)
+[Part1](http://auycro.github.io/blog/2015/09/02/implement-websocket-unity-webgl-javascript-plugin1)
 
 <h3>Part2</h3>
 <h4>Create New Project in Unity</h4>
