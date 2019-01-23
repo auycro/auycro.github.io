@@ -4,7 +4,6 @@ title: Auycro | Grace's Independence Day
 ---
 
 <!-- Display the countdown timer in an element -->
-Grace's independence day!!!
 <p id="demo"></p>
 
 <script>
@@ -28,12 +27,12 @@ var x = setInterval(function() {
 
   // Display the result in the element with id="demo"
   document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
+  + minutes + "m " + seconds + "s to Grace's independence day.";
 
   // If the count down is finished, write some text
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById("demo").innerHTML = "EXPIRED";
+    document.getElementById("demo").innerHTML = "Congratulation to Grace's independence day.";
   }
 }, 1000);
 </script>
