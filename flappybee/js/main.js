@@ -10,7 +10,7 @@ var mainState = {
 
         // Load Sprite
         //game.load.spritesheet('bee', 'assets/BeeSprite2.png', 96, 70);
-        game.load.spritesheet('bee', 'https://cdn.jsdelivr.net/gh/auycro/FlappyBee@8c336f47f31ceb7f0cb204af206138d5a3f1c742/assets/beesprite2.wav', 96, 70);
+        game.load.spritesheet('bee', 'https://cdn.jsdelivr.net/gh/auycro/FlappyBee@8c336f47f31ceb7f0cb204af206138d5a3f1c742/assets/beesprite2.png', 96, 70);
         
         // Load Image
         game.load.image('pipe', 'assets/shell.png'); 
