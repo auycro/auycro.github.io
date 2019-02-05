@@ -10,7 +10,7 @@ var mainState = {
 
         // Load Sprite
         //game.load.spritesheet('bee', 'assets/BeeSprite2.png', 96, 70);
-        game.load.spritesheet('bee', 'https://cdn.rawgit.com/auycro/auycro.github.io/8069b571/flappybee/assets/beesprite2.png', 96, 70);
+        game.load.spritesheet('bee', 'https://cdn.jsdelivr.net/gh/auycro/FlappyBee@8c336f47f31ceb7f0cb204af206138d5a3f1c742/assets/beesprite2.wav', 96, 70);
         
         // Load Image
         game.load.image('pipe', 'assets/shell.png'); 
@@ -19,9 +19,9 @@ var mainState = {
         //game.load.audio('bubble', 'assets/BUBBLE.WAV');
         //game.load.audio('gong', 'assets/hitShell.wav'); 
         //game.load.audio('fiew', 'assets/FiewNgo.wav'); 
-        game.load.audio('bubble', 'https://cdn.rawgit.com/auycro/FlappyBee/8c336f47/assets/bubble.wav');
-        game.load.audio('gong', 'https://cdn.rawgit.com/auycro/FlappyBee/8c336f47/assets/hitshell.wav'); 
-        game.load.audio('fiew', 'https://cdn.rawgit.com/auycro/FlappyBee/8c336f47/assets/fiewngo.wav'); 
+        game.load.audio('bubble', 'https://cdn.jsdelivr.net/gh/auycro/FlappyBee@8c336f47f31ceb7f0cb204af206138d5a3f1c742/assets/bubble.wav');
+        game.load.audio('gong', 'https://cdn.jsdelivr.net/gh/auycro/FlappyBee@8c336f47f31ceb7f0cb204af206138d5a3f1c742/assets/hitshell.wav'); 
+        game.load.audio('fiew', 'https://cdn.jsdelivr.net/gh/auycro/FlappyBee@8c336f47f31ceb7f0cb204af206138d5a3f1c742/assets/fiewngo.wav'); 
     },
 
     create: function() { 
