@@ -1,5 +1,5 @@
 ```
-git clone     https://github.com/GoogleCloudPlatform/python-docs-samples.git
+git clone https://github.com/GoogleCloudPlatform/python-docs-samples.git
 cd vision/cloud-client/quickstart/
 cat quickstart.py
 gcloud iam service-accounts create {bar} --project {foo}
