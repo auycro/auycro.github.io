@@ -4,7 +4,8 @@ title: Auycro | Mami in Canada
 ---
 
 <!-- Display the countdown timer in an element -->
-<p id="mami_in_canada"></p>
+<h1 class="text-blue">Mami is </h1>
+<p id="in_canada"></p>
 <p id="x_mas"></p>
 
 <script>
@@ -13,7 +14,7 @@ var counter = function(target_datetime, count_to){
     var distance = now - target_datetime;
     if (count_to){
       distance = target_datetime - now ;
-      if (distance < 0){return [0,0,0,0]}
+      if (distance < 0){return "already "}
     };
     
     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -21,26 +22,25 @@ var counter = function(target_datetime, count_to){
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
   
-    return [days, hours, minutes, seconds];
+    var result = days + "d " 
+        + hours + "h "
+        + minutes + "m " 
+        + seconds + "s ";
+    
+    return result;
 };
 
 var runner = setInterval(function() {
     var flight_counter = counter(new Date("Jul 7, 2019 10:00:00").getTime(), false);
     var x_mas_counter = counter(new Date("Dec 25, 2019 00:00:00").getTime(), true);
     
-    document.getElementById("mami_in_canada").innerHTML = "🛫" 
-        + flight_counter[0] + "d " 
-        + flight_counter[1] + "h "
-        + flight_counter[2] + "m " 
-        + flight_counter[3] + "s " 
-        + ", Mami is in Canada.";
+    document.getElementById("mami_in_canada").innerHTML = "🛫 " 
+        + flight_counter 
+        + "in Canada.";
     
-    document.getElementById("x_mas").innerHTML = "🎅" 
-        + x_mas_counter[0] + "d " 
-        + x_mas_counter[1] + "h "
-        + x_mas_counter[2] + "m " 
-        + x_mas_counter[3] + "s "
-        + ", Celebrate X'Mas together :)";
+    document.getElementById("x_mas").innerHTML = "🎅 " 
+        + x_mas_counter
+        + "celebrate X'Mas.";
     
 }, 1000);
 
