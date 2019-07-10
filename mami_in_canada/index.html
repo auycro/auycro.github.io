@@ -25,8 +25,8 @@ var counter = function(target_datetime, count_to){
 
 var runner = setInterval(function() {
     var x_mas_counter = counter(new Date("Jul 7, 2019 10:00:00").getTime(), true);
-    document.getElementById("x_mas").innerHTML = days + "d " + hours + "h "
-    + minutes + "m " + seconds + "s to Celebrate X'Mas together :)";
+    document.getElementById("x_mas").innerHTML = x_mas_counter[0] + "d " + x_mas_counter[1] + "h "
+    + x_mas_counter[3] + "m " + x_mas_counter[4] + "s to Celebrate X'Mas together :)";
   
     
 }, 1000);
