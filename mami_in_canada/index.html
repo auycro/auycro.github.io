@@ -4,9 +4,31 @@ title: Auycro | Mami in Canada
 ---
 
 <!-- Display the countdown timer in an element -->
-<p id="mami"></p>
+<p id="mami_in_canada"></p>
+<p id="x_mas"></p>
 
 <script>
+var counter = function(target_datetime, count_to){
+    var distance = now - target_datetime ;
+    if (count_to){
+      distance = target_datetime - now ;
+    };
+    
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
+    return [days, hours, minutes, seconds];
+};
+
+var runner = setInterval(function() {
+    document.getElementById("x_mas").innerHTML = days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s to Celebrate X'Mas together :)";
+  
+    
+}, 1000);
+  
 // Set the date we're counting down to
 //var countDownDate = new Date("Feb 1, 2019 00:00:00").getTime();
 var fromDate = new Date("Jul 7, 2019 10:00:00").getTime();
