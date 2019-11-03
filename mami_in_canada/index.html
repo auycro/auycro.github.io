@@ -6,6 +6,7 @@ title: Auycro | Mami in Canada
 <!-- Display the countdown timer in an element -->
 <strong class="text-blue">Mami is </strong>
 <p id="in_canada"></p>
+<p id="gapa_canada"></p>
 <p id="x_mas"></p>
 
 <script>
@@ -32,12 +33,17 @@ var counter = function(target_datetime, count_to){
 
 var runner = setInterval(function() {
     var flight_counter = counter(new Date("Jul 7, 2019 10:00:00").getTime(), false);
+    var gapa_counter = counter(new Date("Dec 21, 2019 19:00:00").getTime(), true);
     var x_mas_counter = counter(new Date("Dec 25, 2019 00:00:00").getTime(), true);
-    
+
     document.getElementById("in_canada").innerHTML = "🛫 " 
         + flight_counter 
         + "in Canada.";
     
+    document.getElementById("gapa_canada").innerHTML = "🕺💃 " 
+        + gapa_counter
+        + "meet Gapa-tan.";
+
     document.getElementById("x_mas").innerHTML = "🎅 " 
         + x_mas_counter
         + "celebrate X'Mas.";
