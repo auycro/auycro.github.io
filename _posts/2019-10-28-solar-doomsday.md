@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Solar Doomday"
+title: "Solar Doomsday"
 date: 2019-10-28
 keywords: ",Python,Coding,Google"
 ---
