@@ -30,19 +30,19 @@ Host foobar-repository
 
     2.1 check current remote Url: `git remote -v`
 
-```
-$ git remote -v
-origin  git@github.com:auycro/temporary-repo.git (fetch)
-origin  git@github.com:auycro/temporary-repo.git (push)
-```
+    ```
+    $ git remote -v
+    origin  git@github.com:auycro/temporary-repo.git (fetch)
+    origin  git@github.com:auycro/temporary-repo.git (push)
+    ```
 
     2.2 switch remote `git remote set-url {{url}}` by using `~/.ssh/config` to replace it.
 
-```
-$ git remote set-url origin foobar-repository:auycro/temporary-repo.git
-$ git remote -v
-origin  foobar-repository:auycro/temporary-repo.git (fetch)
-origin  foobar-repository:auycro/temporary-repo.git (push)
-```
+    ```
+    $ git remote set-url origin foobar-repository:auycro/temporary-repo.git
+    $ git remote -v
+    origin  foobar-repository:auycro/temporary-repo.git (fetch)
+    origin  foobar-repository:auycro/temporary-repo.git (push)
+    ```
 
 3. Check remote Url by using `git fetch`
