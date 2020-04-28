@@ -8,8 +8,9 @@ title: Auycro | Mami in Canada
 <p id="in_canada"></p>
 <p id="gapa_canada"></p>
 <p id="x_mas"></p>
-<p id="losangeles"></p>
-<p id="goldenweek"></p>
+<strike><p id="losangeles"></p></strike>
+<strike><p id="goldenweek"></p></strike>
+<p id="covid-19"></p>
 
 <script>
 var counter = function(target_datetime, count_to){
@@ -52,15 +53,15 @@ var runner = setInterval(function() {
         + x_mas_counter
         + "celebrating X'Mas 2019.";
     
-    //document.getElementById("losangeles").innerHTML = "🇺🇸 " 
-    //    + la_counter
-    //    + "arriving at LA.";
-    document.getElementById("losangeles").innerHTML = "🏠 STAY HOME"
-
-    //document.getElementById("goldenweek").innerHTML = "🌈 " 
-    //    + gw_counter
-    //    + "celebrating Goldenweek 2020.";
-    document.getElementById("goldenweek").innerHTML = "🦠😷 COVID-19"
+    document.getElementById("losangeles").innerHTML = "🇺🇸 " 
+        + la_counter
+        + "arriving at LA.";
+    
+    document.getElementById("goldenweek").innerHTML = "🌈 " 
+        + gw_counter
+        + "celebrating Goldenweek 2020.";
+    
+    document.getElementById("covid-19").innerHTML = "🦠😷🏠 STAY HOME"
     
 }, 1000);
 
