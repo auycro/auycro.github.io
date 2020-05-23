@@ -10,7 +10,8 @@ title: Auycro | Mami in Canada
 <p id="x_mas"></p>
 <strike><p id="losangeles"></p></strike>
 <strike><p id="goldenweek"></p></strike>
-<p id="covid-19"></p>
+<p id="stayhome"></p>
+<p id="back_japan"></p>
 
 <script>
 var calculate_day = function(distance){
@@ -53,6 +54,7 @@ var runner = setInterval(function() {
     var la_counter = counter(new Date("Apr 25, 2020 16:00:00").getTime(), true);
     var gw_counter = counter(new Date("Apr 29, 2020 00:00:00").getTime(), true);
     var stayhome_counter = counter(new Date("Mar 16, 2020 00:00:00").getTime(), false);
+    var flight_to_jp_counter = counter(new Date("Jun 27, 2020 00:00:00").getTime(), true);
 
     document.getElementById("in_canada").innerHTML = "🛫 " 
         + flight_counter 
@@ -74,9 +76,9 @@ var runner = setInterval(function() {
         + gw_counter
         + "celebrating Goldenweek 2020.";
     
-    document.getElementById("covid-19").innerHTML = "🦠😷🏠 "
-        + stayhome_counter
-        + "stay home.";
+    document.getElementById("back_japan").innerHTML = "🛬 "
+        + flight_to_jp_counter
+        + "back to 🇯🇵.";
     
 }, 1000);
 
