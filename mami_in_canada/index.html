@@ -48,7 +48,7 @@ var diff = function(start_datetime, end_datetime){
 };
 
 var runner = setInterval(function() {
-    var flight_counter = counter(new Date("Jul 7, 2019 10:00:00").getTime(), false);
+    var flight_counter = diff(new Date("Jul 7, 2019 10:00:00").getTime(), new Date("Jun 27, 2020 12:40:00").getTime());
     var gapa_counter = counter(new Date("Dec 21, 2019 19:00:00").getTime(), true);
     var x_mas_counter = counter(new Date("Dec 25, 2019 00:00:00").getTime(), true);
     var la_counter = counter(new Date("Apr 25, 2020 16:00:00").getTime(), true);
