@@ -41,7 +41,7 @@ var counter = function(target_datetime, count_to){
 };
 
 var diff = function(start_datetime, end_datetime){
-    var distance = start_datetime - end_datetime;
+    var distance = end_datetime - start_datetime;
     
     var result = calculate_day(distance);    
     return result; 
