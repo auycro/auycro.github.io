@@ -1,0 +1,60 @@
+---
+layout: default
+title: Auycro | Self Event Memo
+---
+
+<!-- Display the countdown timer in an element -->
+<strong class="text-blue">Mami is </strong>
+<p id="in_japan"></p>
+<p id="as_rozetta_guy"></p>
+
+<script>
+var calculate_day = function(distance){
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
+    var result = days + "d " 
+        + hours + "h "
+        + minutes + "m " 
+        + seconds + "s ";
+    
+    return result;
+};
+    
+var counter = function(target_datetime, count_to){
+    var now = new Date().getTime();
+    var distance = now - target_datetime;
+    if (count_to){
+      distance = target_datetime - now ;
+      if (distance < 0){return "already "}
+    };
+    
+    var result = calculate_day(distance);    
+    return result;
+};
+
+var diff = function(start_datetime, end_datetime){
+    var distance = end_datetime - start_datetime;
+    
+    var result = calculate_day(distance);    
+    return result; 
+};
+
+var runner = setInterval(function() {
+    var living_jp_counter = counter(new Date("Mar 28, 2011 10:00:00").getTime(), true);
+    var rozetta_counter = counter(new Date("Jan 1, 2017 19:00:00").getTime(), true);
+
+    document.getElementById("in_japan").innerHTML = "🇯🇵 " 
+        + living_jp_counter 
+        + "living in Japan.";
+    
+    document.getElementById("as_rozetta_guy").innerHTML = "💻 " 
+        + rozetta_counter
+        + "working in Rozetta Corp.";
+
+    
+}, 1000);
+
+</script>
