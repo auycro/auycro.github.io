@@ -9,6 +9,9 @@ title: Auycro | Self Event Memo
 <p id="as_rozetta_guy"></p>
 
 <script>
+const COUNT_TO = true;
+const COUNT_FROM = false;
+    
 var calculate_day = function(distance){
     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -43,8 +46,8 @@ var diff = function(start_datetime, end_datetime){
 };
 
 var runner = setInterval(function() {
-    var living_jp_counter = counter(new Date("Mar 28, 2011 10:00:00").getTime(), true);
-    var rozetta_counter = counter(new Date("Jan 1, 2017 19:00:00").getTime(), true);
+    var living_jp_counter = counter(new Date("Mar 28, 2011 10:00:00").getTime(), COUNT_FROM);
+    var rozetta_counter = counter(new Date("Jan 1, 2017 19:00:00").getTime(), COUNT_FROM);
 
     document.getElementById("in_japan").innerHTML = "🇯🇵 " 
         + living_jp_counter 
