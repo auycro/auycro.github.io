@@ -53,7 +53,7 @@ var runner = setInterval(function() {
     var x_mas_counter = counter(new Date("Dec 25, 2019 00:00:00").getTime(), true);
     var la_counter = counter(new Date("Apr 25, 2020 16:00:00").getTime(), true);
     var gw_counter = counter(new Date("Apr 29, 2020 00:00:00").getTime(), true);
-    var stayhome_counter = counter(new Date("Mar 16, 2020 00:00:00").getTime(), false);
+    var stayhome_counter = diff(new Date("Mar 16, 2020 00:00:00").getTime(), new Date("Oct 1, 2020 09:30:00").getTime());
     var flight_to_jp_counter = counter(new Date("Jun 27, 2020 00:00:00").getTime(), true);
 
     document.getElementById("in_canada").innerHTML = "🛫 " 
