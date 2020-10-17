@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Test gRPC in .Net Core"
+title: "gRPC in .Net Core"
 date: 2020-10-17
 keywords: ",gRPC,.Net,.Net Core,dotnet,dotnet core"
 ---
