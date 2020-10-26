@@ -16,9 +16,10 @@ I got the documents about their system and explaining about user and system. The
 
 **Programming**:
 There is a sequence of numbers from 1 to 50. Please made an output by these conditions.
-If it multiplies by 3, then print "foo".
-If it contains 3, then print "bar".
-If both of those conditions are correct, then print "baz".
+- If it multiplies by 3, then print "foo".
+- If it contains 3, then print "bar".
+- If both of those conditions are correct, then print "baz".
+
 This is my answer.
 [.....]
 (I will write it up later day :P.  This one needs to re-check again also.)
