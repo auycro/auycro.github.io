@@ -6,7 +6,7 @@ keywords: ",interview,programming,quiz"
 ---
 
 Recently, I got an opportunity to talk with a Japanese tech company.
-Their idea for the business is profit provable and easily to approach to other industry.
+Their idea for the business is really nice and easily to approach to other industry.
 
 Here I gonna summarize the quiz, I got in the tech session. And how I was tackled it:
 
