@@ -23,7 +23,7 @@ There is a sequence of numbers from 1 to 50. Please made an output by these cond
 
 This is my answer.
 
-<script src="https://gist.github.com/auycro/91476b0d316fff78c4b7d1f2d4574bea#file-20201026-2-cs"></script>
+<script src="https://gist.github.com/auycro/91476b0d316fff78c4b7d1f2d4574bea.js"></script>
 
 Then I got a question, about what if the sequence is a big number.
 umm....that time I answer them by a parallel thread. Cuz, this problem is O(N). (As we need to check every number).
