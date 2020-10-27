@@ -13,7 +13,7 @@ Here I gonna summarize the quiz, I got in the tech session. And how I was tackle
 **Web Architecture Design**:
 I got the documents about their system and explaining about user and system. Then It is my part to discuss architecture. I made an awful mistake by starting from the dataflow and event diagram. It cost me time, I even cannot find a way to finish it. After a while, they guide me on what they need. And it comes to the system architecture. So, I design and explain it as a micro-service. In the end, it was like the below picture. ↓↓↓↓
 
-![web-architecture-design](/assets/20201026-1.png)
+<img src="/assets/20201026-1.png" width="50%" />
 
 **Programming**:
 There is a sequence of numbers from 1 to 50. Please made an output by these conditions.
