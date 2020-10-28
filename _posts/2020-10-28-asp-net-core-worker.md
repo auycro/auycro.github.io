@@ -7,14 +7,14 @@ keywords: ",asp.net,dotnet,worker"
 
 ## How To: Add Worker Service to ASP.NET Core
 
-Create New Project
+#### Create New Project
 
 ```
 $ dotnet new webapi -o helloworld
 $ cd helloworld
 ```
 
-Create Worker File 
+#### Create Worker File 
 
 {root-project}/Worker.cs
 
@@ -48,7 +48,7 @@ namespace helloworld
 }
 ```
 
-Add Service to Program.cs
+#### Add Service to Program.cs
 
 {root-project}/Program.cs
 
@@ -89,7 +89,7 @@ namespace helloworld
 
 ```
 
-Run and check the result
+#### Run and check the result
 
 ```
 info: helloworld.Worker[0]
