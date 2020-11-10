@@ -5,7 +5,7 @@ date: 2020-11-11
 keywords: ",code,challenge,programming"
 ---
 
-Just thereminding to myself:
+Just reminding to myself:
 
 As recently, I'm so tired of unproductive thinking.
 I decided to challenge myself in code practice.
