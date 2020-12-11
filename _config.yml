@@ -4,8 +4,8 @@ name: auycro
 # Link
 production_url : http://auycro.github.io
 permalink: 
-  - posts: /blog/:year/:month/:day/:title
-  - vis: /vi-memo/:year/:month/:day/:title
+  - /blog/:year/:month/:day/:title
+  - /vi-memo/:year/:month/:day/:title
 
 # Conversion
 markdown: kramdown
