@@ -3,9 +3,7 @@ name: auycro
 
 # Link
 production_url : http://auycro.github.io
-permalink: 
-  /blog/:year/:month/:day/:title
-  /vi-memo/:title
+permalink: /:categories/:year/:month/:day/:title
 
 # Conversion
 markdown: kramdown

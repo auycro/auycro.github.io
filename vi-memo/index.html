@@ -3,8 +3,8 @@ layout: default
 title: Auycro's Vi memo
 ---
 <!-- <h1>{{ page.title }}</h1> -->
-<ul class="vimemos">
-  {% for memo in site.vimemos %}
+<ul class="vis">
+  {% for memo in site.vis %}
     <li><span>{{ memo.date | date_to_string }}</span> » <a href="{{ memo.url }}" title="{{ memo.title }}">{{ memo.title }}</a></li>
   {% endfor %}
 </ul>
