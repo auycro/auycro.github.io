@@ -5,6 +5,6 @@ title: Auycro's Vi memo
 <!-- <h1>{{ page.title }}</h1> -->
 <ul class="vi-memos">
   {% for memo in site.vi-memos %}
-    <li><span>{{ post.date | date_to_string }}</span> » <a href="{{ memo.url }}" title="{{ memo.title }}">{{ memo.title }}</a></li>
+    <li><span>{{ memo.date | date_to_string }}</span> » <a href="{{ memo.url }}" title="{{ memo.title }}">{{ memo.title }}</a></li>
   {% endfor %}
 </ul>
