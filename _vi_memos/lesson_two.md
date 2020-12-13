@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "Lesson 1"
-date: 2020-12-11
+title: "Lesson 2"
 keywords: ""
-#permalink: /vi-memo/lesson-one
 ---
 
 Vi memo
