@@ -5,6 +5,11 @@ name: auycro
 production_url : http://auycro.github.io
 permalink: /blog/:year/:month/:day/:title
 
+# Collections
+collections:
+  - posts
+  - vi-memos
+
 # Conversion
 markdown: kramdown
 
