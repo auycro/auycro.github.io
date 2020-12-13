@@ -7,10 +7,7 @@ permalink: /blog/:year/:month/:day/:title
 
 # Collections
 collections:
-  - 
-    posts: ~
-  - 
-    vi_memos: 
+  vi_memos: 
       output: true
 
 # Conversion
