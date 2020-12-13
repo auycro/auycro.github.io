@@ -7,8 +7,10 @@ permalink: /blog/:year/:month/:day/:title
 
 # Collections
 collections:
-  - posts
-  - vi_memos
+  - posts:
+      #output: true
+  - vi_memos:
+      output: true
 
 # Conversion
 markdown: kramdown
