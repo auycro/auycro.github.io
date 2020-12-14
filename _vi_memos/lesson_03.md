@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Lesson 2: Copy, Cut and Paste"
+title: "Lesson 3: Copy, Cut and Paste"
 keywords: ""
-permalink: /vi_memo/
+permalink: /vi_memo/:title
 ---
 
 TBD

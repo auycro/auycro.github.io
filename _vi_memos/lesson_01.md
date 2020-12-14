@@ -2,7 +2,7 @@
 layout: post
 title: "Lesson 1: Set Options"
 keywords: "vim,"
-permalink: /vi_memo/
+permalink: /vi_memo/:title
 ---
 
 | Option | Use case |

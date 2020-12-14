@@ -2,7 +2,7 @@
 layout: post
 title: "Lesson 2: Read, Write, Edit and Quit"
 keywords: ""
-permalink: /vi_memo/
+permalink: /vi_memo/:title
 ---
 
 TBD
