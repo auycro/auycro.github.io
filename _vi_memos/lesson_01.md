@@ -5,6 +5,7 @@ keywords: "vim,"
 permalink: /vi_memo/:title
 ---
 
+{:class="table table-bordered"}
 | Option | Use case |
 |-------|--------|
 | :set list/nolist | show EOL/tab/white space character |

@@ -5,8 +5,7 @@ keywords: ""
 permalink: /vi_memo/:title
 ---
 
-TBD
-
+{:class="table table-bordered"}
 | Command | Use case |
 |------------------|-----------|
 | yy {file}        | read all in {file} |
