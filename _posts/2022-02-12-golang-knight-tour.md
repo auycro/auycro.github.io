@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "golang knight's tour problem with warnsdorff"
+title: "Golang knight's tour problem"
 date: 2022-02-12
 keywords: ",golang,algorithm,warnsdorff,knight tour"
 ---
 
-https://github.com/auycro/golang-knight-travel
+https://github.com/auycro/golang-knight-tour
 
 ```
 $ go run cmd/main.go warnsdoff random
