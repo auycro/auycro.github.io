@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "golang knight's tour problem with warnsdorff"
-date: 2021-02-12
+date: 2022-02-12
 keywords: ",golang,algorithm,warnsdorff,knight tour"
 ---
 
