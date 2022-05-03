@@ -5,7 +5,7 @@ date: 2022-05-03
 keywords: ",skaffold,k8s,nodejs"
 ---
 
-THis is just a memo how I created skaffold from existing Node.js app. 
+THis is just a memo about how I created a skaffold yaml from an existing Node.js app. 
 
 ## Prerequisites
 
