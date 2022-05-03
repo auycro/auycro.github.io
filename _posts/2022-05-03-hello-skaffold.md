@@ -9,10 +9,11 @@ THis is just a memo about how I created a skaffold yaml from an existing Node.js
 
 ## Prerequisites
 
-1. minikube
-2. skaffold
-3. kubectl
+1. [minikube](https://minikube.sigs.k8s.io/docs/start/)
+2. [skaffold](https://skaffold.dev/docs/install/)
+3. [kubectl](https://kubernetes.io/docs/tasks/tools/)
 4. Docker
+5. Node.js with yarn
 
 ## Create Node.js app (Vite)
 
@@ -58,6 +59,18 @@ Optional: .dockerignore
 ```yaml
 node_modules
 kubernetes
+```
+
+## Setting up minikube and skaffold
+
+[quickstart for minikube and skaffold](https://skaffold.dev/docs/quickstart/)
+
+Start minikube
+
+```sh
+$ minikube start --profile custom
+$ skaffold config set --global local-cluster true
+$ eval $(minikube -p custom docker-env)
 ```
 
 ## Prepare k8s yaml
