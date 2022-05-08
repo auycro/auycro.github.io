@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Config OIDC in AWS iam with Terraform (for Github Actions)"
-date: 2022-05-09
+date: 2022-05-08
 keywords: ",terraform,aws,iam,oidc,github,githubactions,gha"
 ---
 
