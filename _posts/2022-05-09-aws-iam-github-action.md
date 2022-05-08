@@ -2,7 +2,7 @@
 layout: post
 title: "Config OIDC in AWS iam with Terraform (for Github Actions)"
 date: 2022-05-09
-keywords: ",terraform,aws,iam,oidc,github,github actions,gha"
+keywords: ",terraform,aws,iam,oidc,github,githubactions,gha"
 ---
 
 [Main Reference](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services)
