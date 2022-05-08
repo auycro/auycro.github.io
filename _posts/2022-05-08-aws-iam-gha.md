@@ -60,6 +60,8 @@ on:
 
 env:
   BUCKET_NAME: "auycro-test-upload"
+  AWS_IAM_ARN: "{add your iam's arn here}" 
+  #AWS_IAM_ARN: "arn:aws:iam::012345678901:role/test-github-actions"
   
 jobs:
   Upload-S3:
@@ -76,7 +78,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-region: us-east-1
-          role-to-assume: arn:aws:iam::632830983795:role/test-github-actions
+          role-to-assume: ${{ env.AWS_IAM_ARN }}
           role-session-name: GrantGithubActionsAccess
 ```
 
