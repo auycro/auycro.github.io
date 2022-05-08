@@ -5,7 +5,7 @@ date: 2022-05-09
 keywords: ",terraform,aws,iam,oidc,github,github actions,gha"
 ---
 
-[MAIN REF](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services)
+[Main Reference](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services)
 
 ### Terraform File
 
