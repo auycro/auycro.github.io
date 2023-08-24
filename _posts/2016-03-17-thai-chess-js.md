@@ -14,6 +14,6 @@ You can try in the following link :)
 
 [ThaiChess](https://auycro.github.io/thchess)
 
-~[ThaiChess(OnlineVersion)](https://frozen-river-90193.herokuapp.com/)~
+~ [ThaiChess(OnlineVersion)](https://frozen-river-90193.herokuapp.com/) ~
 
-ps. Due to Heroku free-tier phased out. But please feel free to use this [source](https://github.com/auycro/thchess_server).
+ps. The online version is inaccessible, due to Heroku free-tier phased out. Please feel free to use this [source](https://github.com/auycro/thchess_server).
