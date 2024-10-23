@@ -4,7 +4,10 @@ title: Auycro | Time Table
 ---
 
 <!-- Display the countdown timer in an element -->
-<p id="demo"></p>
+<div id="countdownContainer">
+    <h2>Current Times:</h2>
+    <p id="demo"></p>
+</div>
 
 <script>
 function updateTime() {
@@ -33,29 +36,48 @@ updateTime();
 <hr>
 
 <!-- Input for custom time and dropdown for location -->
-<label for="customTime">Enter Time (HH:MM:SS):</label>
-<input type="text" id="customTime" placeholder="12:00:00">
-<label for="location">Select Location:</label>
-<select id="location">
-    <option value="Asia/Tokyo">Japan</option>
-    <option value="Asia/Ho_Chi_Minh">Vietnam</option>
-    <option value="Asia/Kolkata">India</option>
-    <option value="America/Chicago">Dallas</option>
-</select>
-<button onclick="updateCustomTime()">Update Time</button>
+<div id="customTimeContainer">
+    <h2>Set Custom Time:</h2>
+    <label for="customTime">Enter Time (HH:MM:SS):</label>
+    <input type="text" id="customTime" placeholder="12:00:00">
+    
+    <label for="location">Select Location:</label>
+    <select id="location">
+        <option value="Asia/Tokyo">Japan</option>
+        <option value="Asia/Ho_Chi_Minh">Vietnam</option>
+        <option value="Asia/Kolkata">India</option>
+        <option value="America/Chicago">Dallas</option>
+    </select>
+    
+    <button onclick="updateCustomTime()">Update Time</button>
+
+    <div id="customTimeOutput"></div>
+</div>
 
 <script>
 function updateCustomTime() {
     const customTime = document.getElementById("customTime").value;
-    const selectedLocation = document.getElementById("location").value;
+    const timeZones = {
+        "Japan": "Asia/Tokyo",
+        "Vietnam": "Asia/Ho_Chi_Minh",
+        "India": "Asia/Kolkata",
+        "Dallas": "America/Chicago"
+    };
 
     if (customTime) {
         const [hours, minutes, seconds] = customTime.split(':');
         const now = new Date();
         now.setHours(hours, minutes, seconds);
 
-        const time = now.toLocaleString("en-US", { timeZone: selectedLocation });
-        document.getElementById("demo").innerHTML = `<table border='1'><tr><th>Location</th><th>Time</th></tr><tr><td>${selectedLocation}</td><td>${time}</td></tr></table>`;
+        let output = "<h3>Custom Time for All Locations:</h3><table border='1'><tr><th>Location</th><th>Time</th></tr>";
+
+        for (const [location, timeZone] of Object.entries(timeZones)) {
+            const time = now.toLocaleString("en-US", { timeZone: timeZone });
+            output += `<tr><td>${location}</td><td>${time}</td></tr>`;
+        }
+
+        output += "</table>";
+        document.getElementById("customTimeOutput").innerHTML = output;
     }
 }
 </script>
