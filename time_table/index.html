@@ -1,0 +1,31 @@
+---
+layout: default
+title: Auycro | Time Table
+---
+
+<!-- Display the countdown timer in an element -->
+<p id="demo"></p>
+
+<script>
+function updateTime() {
+    const timeZones = {
+        "Japan": "Asia/Tokyo",
+        "Vietnam": "Asia/Ho_Chi_Minh",
+        "India": "Asia/Kolkata",
+        "Dallas": "America/Chicago"
+    };
+
+    let output = "<table border='1'><tr><th>Location</th><th>Time</th></tr>";
+
+    for (const [location, timeZone] of Object.entries(timeZones)) {
+        const time = new Date().toLocaleString("en-US", { timeZone: timeZone });
+        output += `<tr><td>${location}</td><td>${time}</td></tr>`;
+    }
+
+    output += "</table>";
+    document.getElementById("demo").innerHTML = output;
+}
+
+setInterval(updateTime, 1000);
+updateTime();
+</script>
