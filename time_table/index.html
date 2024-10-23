@@ -33,7 +33,7 @@ setInterval(updateTime, 1000);
 updateTime();
 </script>
 
-<hr>
+<hr/>
 
 <!-- Input for custom time and dropdown for location -->
 <div id="customTimeContainer">
@@ -42,7 +42,7 @@ updateTime();
     <input type="text" id="customTime" placeholder="12:00:00">
     
     <label for="location">Select Location:</label>
-    <select id="location">
+    <select id="customlocation">
         <option value="Asia/Tokyo">Japan</option>
         <option value="Asia/Ho_Chi_Minh">Vietnam</option>
         <option value="Asia/Kolkata">India</option>
@@ -57,27 +57,40 @@ updateTime();
 <script>
 function updateCustomTime() {
     const customTime = document.getElementById("customTime").value;
-    const timeZones = {
-        "Japan": "Asia/Tokyo",
-        "Vietnam": "Asia/Ho_Chi_Minh",
-        "India": "Asia/Kolkata",
-        "Dallas": "America/Chicago"
-    };
+    const customLocation = document.getElementById("customlocation").value;
 
     if (customTime) {
-        const [hours, minutes, seconds] = customTime.split(':');
+        const [hours, minutes, seconds] = customTime.split(':').map(Number);
         const now = new Date();
-        now.setHours(hours, minutes, seconds);
 
+        // Create a date object for the custom time in the selected timezone
+        const customDateTime = new Date();
+        customDateTime.setHours(hours, minutes, seconds);
+
+        // Set the timezone to get the time in the specified location
+        const timeInCustomLocation = customDateTime.toLocaleString("en-US", { timeZone: customLocation });
+        const timeInCustomLocationInUTC = new Date(timeInCustomLocation).toUTCString();
+
+        // Prepare output for all locations
         let output = "<h3>Custom Time for All Locations:</h3><table border='1'><tr><th>Location</th><th>Time</th></tr>";
 
+        const timeZones = {
+            "Japan": "Asia/Tokyo",
+            "Vietnam": "Asia/Ho_Chi_Minh",
+            "India": "Asia/Kolkata",
+            "Dallas": "America/Chicago"
+        };
+
         for (const [location, timeZone] of Object.entries(timeZones)) {
-            const time = now.toLocaleString("en-US", { timeZone: timeZone });
+            const time = new Date(timeInCustomLocationInUTC).toLocaleTimeString("en-US", { timeZone });
             output += `<tr><td>${location}</td><td>${time}</td></tr>`;
         }
 
         output += "</table>";
         document.getElementById("customTimeOutput").innerHTML = output;
+    } else {
+        document.getElementById("customTimeOutput").innerHTML = "<p>Please enter a valid time.</p>";
     }
 }
 </script>
+
