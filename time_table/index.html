@@ -29,3 +29,33 @@ function updateTime() {
 setInterval(updateTime, 1000);
 updateTime();
 </script>
+
+<hr>
+
+<!-- Input for custom time and dropdown for location -->
+<label for="customTime">Enter Time (HH:MM:SS):</label>
+<input type="text" id="customTime" placeholder="12:00:00">
+<label for="location">Select Location:</label>
+<select id="location">
+    <option value="Asia/Tokyo">Japan</option>
+    <option value="Asia/Ho_Chi_Minh">Vietnam</option>
+    <option value="Asia/Kolkata">India</option>
+    <option value="America/Chicago">Dallas</option>
+</select>
+<button onclick="updateCustomTime()">Update Time</button>
+
+<script>
+function updateCustomTime() {
+    const customTime = document.getElementById("customTime").value;
+    const selectedLocation = document.getElementById("location").value;
+
+    if (customTime) {
+        const [hours, minutes, seconds] = customTime.split(':');
+        const now = new Date();
+        now.setHours(hours, minutes, seconds);
+
+        const time = now.toLocaleString("en-US", { timeZone: selectedLocation });
+        document.getElementById("demo").innerHTML = `<table border='1'><tr><th>Location</th><th>Time</th></tr><tr><td>${selectedLocation}</td><td>${time}</td></tr></table>`;
+    }
+}
+</script>
