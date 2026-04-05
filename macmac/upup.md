@@ -1,22 +1,27 @@
-# Start MAC setup
+# Mac setup
 
 ## Table of Contents
 
-- [Start MAC Setup](#start-mac-setup)
+- [Mac Setup](#mac-setup)
   - [Brewwww](#brewwww)
-    - [Lightweight Docker](#lightweight-docker)
-    - [Node as Pro](#node-as-pro)
-- [VSCode](#vscode)
+    - [Docker Desktop No More](#docker-desktop-no-more)
+    - [Node Noob](#node-noob)
+  - [VSCodeeee](#vscodeeee)
+    - [Code Code Cpde](#code-code-code) 
 
 ## Brewwww
 
-### Lightweight Docker
+### Docker Desktop No more
+
+https://github.com/abiosoft/colima
 
 ```
 $ brew install docker docker-compose colima
 $ colima start
 ```
-### Node as Pro
+### Node Noob
+
+https://github.com/Schniz/fnm
 
 ```
 $ brew install fnm
@@ -25,5 +30,11 @@ $ source ~/.zshrc
 $ fnm install --lts
 ```
 
-## VSCode
+## VSCodeeee
+
+### Code Code Code
+
+https://code.visualstudio.com/docs/setup/mac#_launch-vs-code-from-the-command-line
+
+
 
