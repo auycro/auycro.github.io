@@ -6,6 +6,7 @@
   - [Brewwww](#brewwww)
     - [Docker Desktop No More](#docker-desktop-no-more)
     - [Node Noob](#node-noob)
+    - [Pyenv](#pyenv)
   - [VSCodeeee](#vscodeeee)
     - [Code Code Cpde](#code-code-code) 
 
@@ -28,6 +29,21 @@ $ brew install fnm
 $ echo 'eval "$(fnm env --use-on-cd)"' >> ~/.zshrc
 $ source ~/.zshrc
 $ fnm install --lts
+```
+
+### Pyenv
+
+```
+$ brew install xz
+$ brew install pyenv
+
+$ echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+$ echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+$ echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+$ source ~/.zshrc
+
+$ pyenv install 3.12
+$ pyenv global 3.12
 ```
 
 ## VSCodeeee
