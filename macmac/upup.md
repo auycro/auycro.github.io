@@ -31,6 +31,15 @@ $ source ~/.zshrc
 $ fnm install --lts
 ```
 
+alternative isolate ~/.fnm
+
+```
+export FNM_DIR="$HOME/.fnm"
+export XDG_STATE_HOME="$HOME/.fnm"
+mkdir -p ~/.fnm
+eval "$(fnm env)"
+```
+
 ### Pyenv
 
 ```
@@ -44,6 +53,12 @@ $ source ~/.zshrc
 
 $ pyenv install 3.12
 $ pyenv global 3.12
+```
+
+activate
+
+```
+source .venv/bin/activate
 ```
 
 ## VSCodeeee
