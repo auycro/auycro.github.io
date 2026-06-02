@@ -3,7 +3,6 @@ layout: default
 title: Auycro | TicTacToe
 ---
 
-
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap');
 
@@ -430,6 +429,19 @@ body::before {
     </div>
   </div>
 
+  <!-- Client waiting section -->
+  <div id="client-section" style="display:none">
+    <div class="status-bar">
+      <div class="dot yellow" id="client-dot"></div>
+      <span id="client-status">Connecting…</span>
+    </div>
+    <div class="card" style="text-align:center;padding:40px 28px">
+      <div class="card-title" style="margin-bottom:12px">Joining Game</div>
+      <div id="client-sym" style="font-family:'Space Mono',monospace;font-size:64px;font-weight:700;line-height:1;margin-bottom:16px"></div>
+      <div id="client-hint" style="font-family:'Space Mono',monospace;font-size:12px;color:var(--muted);letter-spacing:2px;text-transform:uppercase">Waiting for host to start…</div>
+    </div>
+  </div>
+
   <!-- Host section -->
   <div id="host-section" style="display:none">
     <div class="status-bar">
@@ -535,7 +547,7 @@ const ICE = [
 const $ = id => document.getElementById(id);
 
 function showOnly(id) {
-  ['role-section','host-section','join-section','board-section']
+  ['role-section','host-section','client-section','join-section','board-section']
     .forEach(s => $(s).style.display = s === id ? '' : 'none');
 }
 
@@ -605,21 +617,23 @@ async function startHost() {
 
 function makePC(symbol) {
   const p = new RTCPeerConnection({ iceServers: ICE });
+  let alreadyCounted = false;
   p.oniceconnectionstatechange = () => {
-    const ok = p.iceConnectionState === 'connected' || p.iceConnectionState === 'completed';
-    const dc = p.iceConnectionState === 'disconnected' || p.iceConnectionState === 'failed';
-    if (ok) {
+    const st = p.iceConnectionState;
+    if ((st === 'connected' || st === 'completed') && !alreadyCounted) {
+      alreadyCounted = true;
       updateSlot(symbol, true);
-      connectedClients = [pc1, pc2].filter(
-        c => c && (c.iceConnectionState === 'connected' || c.iceConnectionState === 'completed')
-      ).length;
+      connectedClients++;
       setHostStatus('yellow', `Players connected: ${connectedClients}/2`);
-      if (connectedClients === 2) {
-        setHostStatus('green', 'Both players connected!');
+      if (connectedClients >= 2) {
+        setHostStatus('green', 'Both players connected! ▶ Press Start');
         $('start-btn').style.display = '';
       }
     }
-    if (dc) { updateSlot(symbol, false); if (gameActive) showDCNotice(); }
+    if (st === 'disconnected' || st === 'failed') {
+      updateSlot(symbol, false);
+      if (gameActive) showDCNotice();
+    }
   };
   return p;
 }
@@ -739,26 +753,37 @@ async function connectAsClient(joinData) {
 
   mySymbol = symbol;
 
-  // Show connecting UI (reuse host-section layout)
-  $('role-section').style.display  = 'none';
-  $('join-section').style.display  = 'none';
-  $('host-section').style.display  = '';
-  $('start-btn').style.display     = 'none';
-  $('qr-container').style.display  = 'none';
-  $('qr-container').closest('.card').querySelector('.card-title').textContent = 'Connecting…';
-  document.querySelector('.players').style.display = 'none';
-  setHostStatus('yellow', `Joining as Player ${symbol.toUpperCase()}…`);
+  // Show dedicated client waiting screen
+  ['role-section','join-section','host-section','board-section']
+    .forEach(id => $(id).style.display = 'none');
+  $('client-section').style.display = '';
+  $('client-dot').className = 'dot yellow';
+  $('client-status').textContent = `Joining as Player ${symbol.toUpperCase()}…`;
+  $('client-sym').textContent  = symbol === 'x' ? '✕' : '○';
+  $('client-sym').style.color  = symbol === 'x' ? 'var(--ax)' : 'var(--ao)';
+  $('client-hint').textContent = 'Connecting…';
 
   pc = new RTCPeerConnection({ iceServers: ICE });
   pc.ondatachannel = e => {
     dc = e.channel;
     dc.onmessage = ev => handleClientMsg(JSON.parse(ev.data));
-    dc.onopen    = () => setHostStatus('green', `Connected as ${symbol.toUpperCase()}! Waiting for host…`);
-    dc.onclose   = () => { if (gameActive) showDCNotice(); };
+    dc.onopen = () => {
+      $('client-dot').className = 'dot green';
+      $('client-status').textContent = `Connected as Player ${symbol.toUpperCase()}!`;
+      $('client-hint').textContent = 'Waiting for host to start the game…';
+    };
+    dc.onclose = () => { if (gameActive) showDCNotice(); };
   };
   pc.oniceconnectionstatechange = () => {
-    if (pc.iceConnectionState === 'connected' || pc.iceConnectionState === 'completed')
-      setHostStatus('green', 'Connected! Waiting for host to start…');
+    const st = pc.iceConnectionState;
+    if (st === 'connected' || st === 'completed') {
+      $('client-dot').className = 'dot green';
+      $('client-status').textContent = `Connected as Player ${symbol.toUpperCase()}!`;
+    }
+    if (st === 'failed' || st === 'disconnected') {
+      $('client-dot').className = 'dot red';
+      $('client-status').textContent = 'Connection lost. Refresh and rejoin.';
+    }
   };
 
   await pc.setRemoteDescription(JSON.parse(atob(offerB64)));
@@ -779,7 +804,8 @@ function handleClientMsg(msg) {
   if (mySymbol !== msg.mySymbol) mySymbol = msg.mySymbol;
 
   if ($('board-section').style.display === 'none') {
-    showOnly('board-section');
+    ['role-section','join-section','host-section','client-section','board-section']
+      .forEach(id => $(id).style.display = id === 'board-section' ? '' : 'none');
     $('my-role-label').textContent = 'ROLE: PLAYER ' + mySymbol.toUpperCase();
   }
 
