@@ -1,0 +1,1113 @@
+---
+layout: default
+title: Auycro | TicTacToe
+---
+
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0a0a0f;
+  --surface: #13131a;
+  --surface2: #1c1c28;
+  --border: #2a2a3a;
+  --ax: #ff4d6d;
+  --ao: #00d4ff;
+  --text: #f0f0ff;
+  --muted: #6b6b8a;
+  --win: #39ff8f;
+  --r: 12px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Syne', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.app { position: relative; z-index: 1; width: 100%; max-width: 600px; }
+
+.logo { text-align: center; margin-bottom: 32px; }
+.logo h1 {
+  font-family: 'Space Mono', monospace;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, var(--ax), var(--ao));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.logo p {
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-top: 6px;
+  font-family: 'Space Mono', monospace;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 28px;
+  margin-bottom: 16px;
+}
+.card-title {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-family: 'Space Mono', monospace;
+  margin-bottom: 20px;
+}
+
+.status-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+.dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: pulse 2s infinite;
+}
+.dot.gray  { background: var(--muted); animation: none; }
+.dot.yellow{ background: #ffcc00; }
+.dot.green { background: var(--win); }
+.dot.red   { background: var(--ax); animation: none; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.15s;
+  width: 100%;
+}
+.btn:active { transform: scale(0.98); }
+.btn-primary {
+  background: linear-gradient(135deg, var(--ax), #c0305a);
+  color: #fff;
+  border-color: var(--ax);
+}
+.btn-primary:hover { filter: brightness(1.15); }
+.btn-secondary {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+.btn-secondary:hover { border-color: var(--muted); background: var(--surface2); }
+
+#qr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+#qr-code {
+  background: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  display: inline-block;
+  line-height: 0;
+}
+.room-code {
+  font-family: 'Space Mono', monospace;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 6px;
+  text-align: center;
+  color: var(--ao);
+}
+.room-hint {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.players {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.player-slot {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px;
+  text-align: center;
+  transition: border-color 0.3s;
+}
+.player-slot.connected { border-color: var(--win); }
+.player-slot .sym {
+  font-family: 'Space Mono', monospace;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.player-slot .sym.x { color: var(--ax); }
+.player-slot .sym.o { color: var(--ao); }
+.player-slot .plabel {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.player-slot.connected .plabel { color: var(--win); }
+
+#board-section { display: none; }
+
+.turn-indicator {
+  text-align: center;
+  font-family: 'Space Mono', monospace;
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  min-height: 22px;
+}
+.si   { font-weight: 700; }
+.si.x { color: var(--ax); }
+.si.o { color: var(--ao); }
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  max-width: 320px;
+  margin: 0 auto 24px;
+}
+.cell {
+  aspect-ratio: 1;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Mono', monospace;
+  font-size: 48px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.12s;
+  user-select: none;
+  overflow: hidden;
+}
+.cell:hover:not(.taken) { border-color: var(--muted); background: #22223a; }
+.cell:active:not(.taken) { transform: scale(0.95); }
+.cell.x { color: var(--ax); border-color: rgba(255,77,109,0.4); }
+.cell.o { color: var(--ao); border-color: rgba(0,212,255,0.4); }
+.cell.win-cell { background: rgba(57,255,143,0.08) !important; border-color: var(--win) !important; }
+.cell.taken { cursor: default; }
+
+@keyframes cellPop {
+  0%   { transform: scale(0.5); opacity: 0; }
+  70%  { transform: scale(1.15); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.cell .mark { display: inline-block; animation: cellPop 0.2s ease-out forwards; }
+
+.scores {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  max-width: 320px;
+  margin: 0 auto 20px;
+}
+.score-box {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+}
+.score-box .ssym {
+  font-family: 'Space Mono', monospace;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.score-box .ssym.x { color: var(--ax); }
+.score-box .ssym.o { color: var(--ao); }
+.score-box .snum {
+  font-family: 'Space Mono', monospace;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+}
+
+.result-banner {
+  text-align: center;
+  padding: 20px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-bottom: 16px;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.result-banner.hidden { display: none; }
+.result-text {
+  font-family: 'Space Mono', monospace;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+.result-text.win-x { color: var(--ax); }
+.result-text.win-o { color: var(--ao); }
+.result-text.draw  { color: var(--win); }
+
+#join-section { display: none; }
+
+.input-group label {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 6px;
+}
+.input-group input {
+  width: 100%;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: var(--text);
+  font-family: 'Space Mono', monospace;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+.input-group input:focus { border-color: var(--ao); }
+.input-group input::placeholder { color: var(--muted); letter-spacing: 2px; }
+
+.role-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.role-btn {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Space Mono', monospace;
+  text-align: center;
+  color: var(--text);
+}
+.role-btn:hover { border-color: var(--muted); background: var(--surface); }
+.role-btn .ricon { font-size: 32px; margin-bottom: 10px; font-weight: 700; }
+.role-btn .ricon.x { color: var(--ax); }
+.role-btn .ricon.o { color: var(--ao); }
+.role-btn .rtitle { font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+.role-btn .rdesc  { font-size: 11px; color: var(--muted); margin-top: 4px; letter-spacing: 1px; }
+
+.dc-notice {
+  display: none;
+  text-align: center;
+  padding: 16px;
+  background: rgba(255,77,109,0.08);
+  border: 1px solid rgba(255,77,109,0.3);
+  border-radius: 8px;
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  color: var(--ax);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.copy-btn {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 14px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.15s;
+  width: 100%;
+}
+.copy-btn:hover { border-color: var(--ao); color: var(--ao); }
+
+@media (max-width: 480px) {
+  .logo h1 { font-size: 26px; letter-spacing: 4px; }
+  .board { gap: 7px; }
+  .cell { font-size: 36px; }
+}
+</style>
+
+<!-- ═══════════════════════ HTML ═══════════════════════ -->
+<div class="app">
+
+  <div class="logo">
+    <h1>OX·P2P</h1>
+    <p>WebRTC · Peer to Peer · No Server</p>
+  </div>
+
+  <!-- Role selection -->
+  <div id="role-section">
+    <div class="card">
+      <div class="card-title">Choose your role</div>
+      <div class="role-buttons">
+        <div class="role-btn" onclick="startHost()">
+          <div class="ricon x">✕</div>
+          <div class="rtitle">Host</div>
+          <div class="rdesc">Create room<br>invite players</div>
+        </div>
+        <div class="role-btn" onclick="showJoin()">
+          <div class="ricon o">○</div>
+          <div class="rtitle">Join</div>
+          <div class="rdesc">Enter code<br>or scan QR</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Host section -->
+  <div id="host-section" style="display:none">
+    <div class="status-bar">
+      <div class="dot yellow" id="host-dot"></div>
+      <span id="host-status">Setting up room…</span>
+    </div>
+    <div class="card">
+      <div class="card-title">Room</div>
+      <div id="qr-container">
+        <div id="qr-code"></div>
+        <div class="room-code" id="room-code-display">------</div>
+        <div class="room-hint">Share QR or room code</div>
+        <button class="copy-btn" id="copy-btn" onclick="copyJoinUrl()">📋 Copy join link</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Players</div>
+      <div class="players">
+        <div class="player-slot" id="slot-x">
+          <div class="sym x">✕</div>
+          <div class="plabel" id="label-x">Waiting…</div>
+        </div>
+        <div class="player-slot" id="slot-o">
+          <div class="sym o">○</div>
+          <div class="plabel" id="label-o">Waiting…</div>
+        </div>
+      </div>
+      <button class="btn btn-primary" id="start-btn" onclick="hostStartGame()" style="display:none">
+        ▶ Start Game
+      </button>
+    </div>
+  </div>
+
+  <!-- Join section -->
+  <div id="join-section">
+    <div class="status-bar">
+      <div class="dot gray" id="join-dot"></div>
+      <span id="join-status">Enter room code to join</span>
+    </div>
+    <div class="card">
+      <div class="card-title">Join room</div>
+      <div class="input-group">
+        <label>Room Code</label>
+        <input type="text" id="room-code-input" placeholder="XXXXXX" maxlength="6"
+               oninput="this.value=this.value.toUpperCase()" />
+      </div>
+      <button class="btn btn-primary" onclick="joinRoom()">Join Game</button>
+      <br><br>
+      <button class="btn btn-secondary" onclick="showRole()">← Back</button>
+    </div>
+  </div>
+
+  <!-- Board section -->
+  <div id="board-section">
+    <div class="dc-notice" id="dc-notice">A player disconnected</div>
+    <div class="card" style="max-width:380px;margin:0 auto">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+        <div class="card-title" style="margin:0">Game</div>
+        <div style="font-family:'Space Mono',monospace;font-size:11px;color:var(--muted)" id="my-role-label"></div>
+      </div>
+      <div class="scores">
+        <div class="score-box"><div class="ssym x">✕</div><div class="snum" id="score-x">0</div></div>
+        <div class="score-box"><div class="ssym o">○</div><div class="snum" id="score-o">0</div></div>
+      </div>
+      <div class="turn-indicator" id="turn-indicator"></div>
+      <div class="board" id="board"></div>
+      <div class="result-banner hidden" id="result-banner">
+        <div class="result-text" id="result-text"></div>
+      </div>
+      <button class="btn btn-secondary" id="next-round-btn" onclick="requestNextRound()"
+              style="display:none;max-width:320px;margin:0 auto">
+        Next Round →
+      </button>
+    </div>
+  </div>
+
+</div><!-- /.app -->
+
+<script>
+// ─── State ────────────────────────────────────────────────────────────────────
+let isHost = false;
+let pc1 = null, pc2 = null;   // host: two RTCPeerConnections
+let pc  = null;                // client: one RTCPeerConnection
+let dc1 = null, dc2 = null;   // host data channels
+let dc  = null;                // client data channel
+
+let board        = Array(9).fill(null);
+let currentTurn  = 'x';
+let scores       = { x: 0, o: 0 };
+let gameActive   = false;
+let mySymbol     = null;
+let roundWaiting = { x: false, o: false };
+let connectedClients = 0;
+let roomCode     = '';
+let lsPollTimer  = null;
+
+const ICE = [
+  { urls: 'stun:stun.l.google.com:19302' },
+  { urls: 'stun:stun1.l.google.com:19302' }
+];
+
+// ─── View helpers ─────────────────────────────────────────────────────────────
+const $ = id => document.getElementById(id);
+
+function showOnly(id) {
+  ['role-section','host-section','join-section','board-section']
+    .forEach(s => $(s).style.display = s === id ? '' : 'none');
+}
+
+function showRole()  { showOnly('role-section'); }
+function showJoin()  {
+  $('role-section').style.display = 'none';
+  $('join-section').style.display = '';
+}
+
+function setHostStatus(color, text) {
+  $('host-dot').className = 'dot ' + color;
+  $('host-status').textContent = text;
+}
+function setJoinStatus(color, text) {
+  $('join-dot').className = 'dot ' + color;
+  $('join-status').textContent = text;
+}
+
+// ─── HOST ─────────────────────────────────────────────────────────────────────
+async function startHost() {
+  isHost    = true;
+  roomCode  = Math.random().toString(36).substring(2, 8).toUpperCase();
+
+  showOnly('host-section');
+  setHostStatus('yellow', 'Creating room…');
+
+  // Signaling relay via BroadcastChannel + localStorage polling
+  const bcAnswers = new BroadcastChannel('oxgame_' + roomCode + '_answers');
+  bcAnswers.onmessage = e => handleClientAnswer(e.data);
+  lsPollTimer = setInterval(() => {
+    ['x','o'].forEach(sym => {
+      const key = 'oxgame_' + roomCode + '_ans_' + sym;
+      const raw = localStorage.getItem(key);
+      if (raw) { localStorage.removeItem(key); handleClientAnswer(JSON.parse(raw)); }
+    });
+  }, 500);
+
+  // Create peer connections
+  pc1 = makePC('x');
+  pc2 = makePC('o');
+  dc1 = pc1.createDataChannel('game'); setupHostDC(dc1, 'x');
+  dc2 = pc2.createDataChannel('game'); setupHostDC(dc2, 'o');
+
+  const offer1 = await pc1.createOffer();
+  await pc1.setLocalDescription(offer1);
+  await waitICE(pc1);
+
+  const offer2 = await pc2.createOffer();
+  await pc2.setLocalDescription(offer2);
+  await waitICE(pc2);
+
+  // Store full SDP in localStorage; QR only carries the short room code
+  const joinData = {
+    room: roomCode,
+    o1: btoa(JSON.stringify(pc1.localDescription)),
+    o2: btoa(JSON.stringify(pc2.localDescription))
+  };
+  localStorage.setItem('oxgame_' + roomCode, JSON.stringify(joinData));
+
+  const joinUrl = location.href.split('#')[0] + '#join=' + roomCode;
+  $('room-code-display').textContent = roomCode;
+  $('copy-btn').dataset.url = joinUrl;
+  $('qr-code').innerHTML = makeQRSVG(joinUrl, 200);
+
+  setHostStatus('yellow', 'Waiting for players… (0/2)');
+}
+
+function makePC(symbol) {
+  const p = new RTCPeerConnection({ iceServers: ICE });
+  p.oniceconnectionstatechange = () => {
+    const ok = p.iceConnectionState === 'connected' || p.iceConnectionState === 'completed';
+    const dc = p.iceConnectionState === 'disconnected' || p.iceConnectionState === 'failed';
+    if (ok) {
+      updateSlot(symbol, true);
+      connectedClients = [pc1, pc2].filter(
+        c => c && (c.iceConnectionState === 'connected' || c.iceConnectionState === 'completed')
+      ).length;
+      setHostStatus('yellow', `Players connected: ${connectedClients}/2`);
+      if (connectedClients === 2) {
+        setHostStatus('green', 'Both players connected!');
+        $('start-btn').style.display = '';
+      }
+    }
+    if (dc) { updateSlot(symbol, false); if (gameActive) showDCNotice(); }
+  };
+  return p;
+}
+
+function waitICE(p) {
+  return new Promise(res => {
+    if (p.iceGatheringState === 'complete') { res(); return; }
+    p.onicegatheringstatechange = () => { if (p.iceGatheringState === 'complete') res(); };
+    setTimeout(res, 4000);
+  });
+}
+
+async function handleClientAnswer(data) {
+  if (data.symbol === 'x' && pc1 && pc1.signalingState !== 'stable')
+    await pc1.setRemoteDescription(JSON.parse(atob(data.answer)));
+  else if (data.symbol === 'o' && pc2 && pc2.signalingState !== 'stable')
+    await pc2.setRemoteDescription(JSON.parse(atob(data.answer)));
+}
+
+function updateSlot(sym, ok) {
+  const slot  = $('slot-' + sym);
+  const label = $('label-' + sym);
+  if (ok) { slot.classList.add('connected'); label.textContent = 'Connected'; }
+  else    { slot.classList.remove('connected'); label.textContent = 'Disconnected'; }
+}
+
+function setupHostDC(channel, sym) {
+  channel.onmessage = e => handleHostMessage(JSON.parse(e.data), sym);
+  channel.onclose   = () => { if (gameActive) showDCNotice(); };
+}
+
+function handleHostMessage(msg, fromSym) {
+  if (msg.type === 'move') {
+    if (!gameActive || fromSym !== currentTurn || board[msg.cell] !== null) return;
+    applyMove(msg.cell, fromSym);
+    broadcastState();
+  }
+  if (msg.type === 'next_round_ready') {
+    roundWaiting[fromSym] = true;
+    if (roundWaiting.x && roundWaiting.o) {
+      roundWaiting = { x: false, o: false };
+      resetBoard(); broadcastState();
+    }
+  }
+}
+
+function hostStartGame() {
+  if (connectedClients < 2) return;
+  clearInterval(lsPollTimer);
+  resetBoard(); broadcastState();
+  showOnly('board-section');
+  $('my-role-label').textContent = 'ROLE: HOST';
+}
+
+function broadcastState() {
+  const base = {
+    type: 'state', board, currentTurn, scores, gameActive,
+    resultText: $('result-text').textContent,
+    showResult:    !$('result-banner').classList.contains('hidden'),
+    showNextRound: $('next-round-btn').style.display !== 'none'
+  };
+  sendDC(dc1, { ...base, mySymbol: 'x' });
+  sendDC(dc2, { ...base, mySymbol: 'o' });
+  renderBoard(null);
+  refreshTurn();
+  syncResult();
+}
+
+function sendDC(ch, msg) {
+  if (ch && ch.readyState === 'open') ch.send(JSON.stringify(msg));
+}
+
+// ─── CLIENT ───────────────────────────────────────────────────────────────────
+async function joinRoom() {
+  const code = $('room-code-input').value.trim().toUpperCase();
+  if (code.length < 4) { alert('Enter a valid room code'); return; }
+  roomCode = code;
+
+  const stored = localStorage.getItem('oxgame_' + code);
+  if (stored) {
+    await connectAsClient(JSON.parse(stored));
+  } else if (location.hash.startsWith('#join=')) {
+    await joinFromHash(location.hash);
+  } else {
+    alert('Room not found. Make sure the host has this file open on the same device.');
+  }
+}
+
+async function joinFromHash(hash) {
+  try {
+    const code = hash.replace('#join=', '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+    if (!code || code.length < 4) { alert('Invalid join link.'); return; }
+    roomCode = code;
+    $('room-code-input').value = roomCode;
+    const stored = localStorage.getItem('oxgame_' + roomCode);
+    if (!stored) { alert('Room not found. Open this link on the same device as the host.'); return; }
+    await connectAsClient(JSON.parse(stored));
+  } catch(e) {
+    alert('Join error: ' + e.message);
+  }
+}
+
+async function connectAsClient(joinData) {
+  const takenX = localStorage.getItem('oxgame_' + joinData.room + '_taken_x');
+  const takenO = localStorage.getItem('oxgame_' + joinData.room + '_taken_o');
+
+  let symbol, offerB64;
+  if (!takenX) {
+    symbol = 'x'; offerB64 = joinData.o1;
+    localStorage.setItem('oxgame_' + joinData.room + '_taken_x', '1');
+  } else if (!takenO) {
+    symbol = 'o'; offerB64 = joinData.o2;
+    localStorage.setItem('oxgame_' + joinData.room + '_taken_o', '1');
+  } else {
+    alert('Room is full!'); return;
+  }
+
+  mySymbol = symbol;
+
+  // Show connecting UI (reuse host-section layout)
+  $('role-section').style.display  = 'none';
+  $('join-section').style.display  = 'none';
+  $('host-section').style.display  = '';
+  $('start-btn').style.display     = 'none';
+  $('qr-container').style.display  = 'none';
+  $('qr-container').closest('.card').querySelector('.card-title').textContent = 'Connecting…';
+  document.querySelector('.players').style.display = 'none';
+  setHostStatus('yellow', `Joining as Player ${symbol.toUpperCase()}…`);
+
+  pc = new RTCPeerConnection({ iceServers: ICE });
+  pc.ondatachannel = e => {
+    dc = e.channel;
+    dc.onmessage = ev => handleClientMsg(JSON.parse(ev.data));
+    dc.onopen    = () => setHostStatus('green', `Connected as ${symbol.toUpperCase()}! Waiting for host…`);
+    dc.onclose   = () => { if (gameActive) showDCNotice(); };
+  };
+  pc.oniceconnectionstatechange = () => {
+    if (pc.iceConnectionState === 'connected' || pc.iceConnectionState === 'completed')
+      setHostStatus('green', 'Connected! Waiting for host to start…');
+  };
+
+  await pc.setRemoteDescription(JSON.parse(atob(offerB64)));
+  const answer = await pc.createAnswer();
+  await pc.setLocalDescription(answer);
+  await waitICE(pc);
+
+  const answerMsg = { symbol, answer: btoa(JSON.stringify(pc.localDescription)) };
+  const bc = new BroadcastChannel('oxgame_' + joinData.room + '_answers');
+  bc.postMessage(answerMsg); bc.close();
+  localStorage.setItem('oxgame_' + joinData.room + '_ans_' + symbol, JSON.stringify(answerMsg));
+}
+
+function handleClientMsg(msg) {
+  if (msg.type !== 'state') return;
+  board = msg.board; currentTurn = msg.currentTurn;
+  scores = msg.scores; gameActive = msg.gameActive;
+  if (mySymbol !== msg.mySymbol) mySymbol = msg.mySymbol;
+
+  if ($('board-section').style.display === 'none') {
+    showOnly('board-section');
+    $('my-role-label').textContent = 'ROLE: PLAYER ' + mySymbol.toUpperCase();
+  }
+
+  $('score-x').textContent = scores.x;
+  $('score-o').textContent = scores.o;
+  renderBoard(mySymbol);
+  refreshTurn();
+
+  const rb = $('result-banner'), rt = $('result-text'), nb = $('next-round-btn');
+  if (msg.showResult) {
+    rb.classList.remove('hidden');
+    rt.textContent  = msg.resultText;
+    rt.className    = 'result-text ' + (msg.resultText.includes('✕') ? 'win-x' : msg.resultText.includes('○') ? 'win-o' : 'draw');
+  } else {
+    rb.classList.add('hidden');
+  }
+  nb.style.display = msg.showNextRound ? '' : 'none';
+}
+
+// ─── GAME LOGIC ───────────────────────────────────────────────────────────────
+const WIN_LINES = [
+  [0,1,2],[3,4,5],[6,7,8],
+  [0,3,6],[1,4,7],[2,5,8],
+  [0,4,8],[2,4,6]
+];
+
+function resetBoard() {
+  board = Array(9).fill(null);
+  currentTurn = 'x'; gameActive = true;
+  $('result-banner').classList.add('hidden');
+  $('next-round-btn').style.display = 'none';
+  roundWaiting = { x: false, o: false };
+}
+
+function applyMove(cell, sym) {
+  board[cell] = sym;
+  const winner = checkWinner();
+  if (winner) {
+    gameActive = false; scores[winner]++;
+    $('result-text').textContent = winner === 'x' ? '✕ Wins!' : '○ Wins!';
+    $('result-text').className   = 'result-text win-' + winner;
+    $('result-banner').classList.remove('hidden');
+    $('next-round-btn').style.display = '';
+  } else if (board.every(c => c !== null)) {
+    gameActive = false;
+    $('result-text').textContent = 'Draw!';
+    $('result-text').className   = 'result-text draw';
+    $('result-banner').classList.remove('hidden');
+    $('next-round-btn').style.display = '';
+  } else {
+    currentTurn = currentTurn === 'x' ? 'o' : 'x';
+  }
+}
+
+function checkWinner() {
+  for (const [a,b,c] of WIN_LINES)
+    if (board[a] && board[a] === board[b] && board[a] === board[c]) return board[a];
+  return null;
+}
+
+function getWinCells() {
+  for (const [a,b,c] of WIN_LINES)
+    if (board[a] && board[a] === board[b] && board[a] === board[c]) return [a,b,c];
+  return [];
+}
+
+function renderBoard(playerSym) {
+  const el = $('board');
+  const wc = gameActive ? [] : getWinCells();
+  el.innerHTML = '';
+  board.forEach((val, i) => {
+    const cell = document.createElement('div');
+    cell.className = 'cell'
+      + (val ? ' taken ' + val : '')
+      + (wc.includes(i) ? ' win-cell' : '');
+    if (val) cell.innerHTML = `<span class="mark">${val === 'x' ? '✕' : '○'}</span>`;
+    if (!val && gameActive && !isHost && playerSym === currentTurn)
+      cell.onclick = () => clientMove(i);
+    el.appendChild(cell);
+  });
+  $('score-x').textContent = scores.x;
+  $('score-o').textContent = scores.o;
+}
+
+function clientMove(cell) {
+  if (!gameActive || mySymbol !== currentTurn) return;
+  if (dc && dc.readyState === 'open') dc.send(JSON.stringify({ type: 'move', cell }));
+}
+
+function refreshTurn() {
+  const el = $('turn-indicator');
+  if (!gameActive) { el.innerHTML = ''; return; }
+  const sym = currentTurn === 'x' ? '✕' : '○';
+  const cls = currentTurn;
+  const label = isHost
+    ? `<span class="si ${cls}">${sym}</span> to move`
+    : mySymbol === currentTurn
+      ? `<span class="si ${cls}">${sym}</span> Your turn`
+      : `<span class="si ${cls}">${sym}</span> Opponent's turn`;
+  el.innerHTML = label;
+}
+
+function syncResult() {
+  // host-side result display – already updated by applyMove
+}
+
+function requestNextRound() {
+  if (isHost) {
+    roundWaiting.x = roundWaiting.o = true;
+    resetBoard(); broadcastState();
+  } else if (dc && dc.readyState === 'open') {
+    dc.send(JSON.stringify({ type: 'next_round_ready' }));
+    $('next-round-btn').style.display = 'none';
+  }
+}
+
+function showDCNotice() { $('dc-notice').style.display = ''; }
+
+// ─── Copy URL ─────────────────────────────────────────────────────────────────
+function copyJoinUrl() {
+  const url = $('copy-btn').dataset.url;
+  if (!url) return;
+  const btn  = $('copy-btn');
+  const done = () => {
+    btn.textContent = '✓ Copied!';
+    setTimeout(() => { btn.textContent = '📋 Copy join link'; }, 2000);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText)
+    navigator.clipboard.writeText(url).then(done).catch(() => fallbackCopy(url, done));
+  else
+    fallbackCopy(url, done);
+}
+function fallbackCopy(text, cb) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.cssText = 'position:fixed;top:-999px;left:-999px;opacity:0';
+  document.body.appendChild(ta);
+  ta.focus(); ta.select();
+  try { document.execCommand('copy'); cb(); }
+  catch(e) { prompt('Copy this link:', text); }
+  document.body.removeChild(ta);
+}
+
+// ─── Auto-join from URL hash ──────────────────────────────────────────────────
+window.addEventListener('load', () => {
+  if (location.hash.startsWith('#join=')) {
+    showJoin();
+    setJoinStatus('yellow', 'Auto-joining from link…');
+    joinFromHash(location.hash);
+  }
+});
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// Pure-JS QR encoder → inline SVG. Zero external deps.
+// ECC level M, byte mode, versions 1-10.
+// ═══════════════════════════════════════════════════════════════════════════════
+function makeQRSVG(text, px) {
+  try {
+    const matrix = _qrMatrix(text);
+    const n    = matrix.length;
+    const cell = Math.floor((px - 8) / n);
+    const off  = Math.floor((px - n * cell) / 2);
+    let d = '';
+    for (let r = 0; r < n; r++)
+      for (let c = 0; c < n; c++)
+        if (matrix[r][c]) {
+          const x = off + c * cell, y = off + r * cell;
+          d += `M${x},${y}h${cell}v${cell}h-${cell}z`;
+        }
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="${px}" height="${px}" shape-rendering="crispEdges">`
+         + `<rect width="${px}" height="${px}" fill="#fff"/>`
+         + `<path fill="#000" d="${d}"/></svg>`;
+  } catch(e) {
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="${px}" height="${px}">`
+         + `<rect width="${px}" height="${px}" fill="#fff"/>`
+         + `<text x="50%" y="50%" text-anchor="middle" font-size="12" fill="red">`
+         + `QR Error: ${String(e.message||e).replace(/</g,'&lt;')}</text></svg>`;
+  }
+}
+
+function _qrMatrix(text) {
+  // GF(256)
+  const EXP = new Uint8Array(512), LOG = new Uint8Array(256);
+  let xv = 1;
+  for (let i = 0; i < 255; i++) {
+    EXP[i] = xv; LOG[xv] = i;
+    xv <<= 1; if (xv & 256) xv ^= 0x11D; xv &= 255;
+  }
+  for (let i = 255; i < 512; i++) EXP[i] = EXP[i - 255];
+  const gm = (a, b) => a && b ? EXP[LOG[a] + LOG[b]] : 0;
+
+  // UTF-8
+  const bytes = [];
+  for (let i = 0; i < text.length; i++) {
+    const c = text.charCodeAt(i);
+    if      (c < 0x80)  bytes.push(c);
+    else if (c < 0x800) bytes.push(0xC0|(c>>6), 0x80|(c&0x3F));
+    else                bytes.push(0xE0|(c>>12), 0x80|((c>>6)&0x3F), 0x80|(c&0x3F));
+  }
+
+  // Version (ECC M)
+  const MAX = [0,16,28,44,64,86,108,124,154,182,216];
+  let ver = 1;
+  while (ver < 10 && bytes.length + 3 > MAX[ver]) ver++;
+  if (bytes.length + 3 > MAX[ver]) throw new Error('Text too long');
+
+  // RS block params [ecPerBlock, g1n, g1d, g2n, g2d]
+  const RSP = {
+    1:[10,1,16,0,0], 2:[16,1,28,0,0], 3:[26,1,44,0,0],
+    4:[18,2,32,0,0], 5:[24,2,43,0,0], 6:[16,4,27,0,0],
+    7:[18,4,31,0,0], 8:[22,2,38,2,39],9:[22,3,36,2,37],
+    10:[26,4,43,1,44]
+  };
+  const [ecpb, g1n, g1d, g2n, g2d] = RSP[ver];
+  const totalData = g1n*g1d + g2n*g2d;
+
+  // Bit buffer
+  const bits = [];
+  const pb = (val, len) => { for (let i = len-1; i >= 0; i--) bits.push((val>>i)&1); };
+  pb(0b0100, 4); pb(bytes.length, 8);
+  for (const b of bytes) pb(b, 8);
+  for (let i = 0; i < 4 && bits.length < totalData*8; i++) bits.push(0);
+  while (bits.length % 8) bits.push(0);
+  let pad = 0;
+  while (bits.length < totalData*8) { pb(pad ? 0x11 : 0xEC, 8); pad ^= 1; }
+  const cw = [];
+  for (let i = 0; i < bits.length; i += 8) {
+    let v = 0; for (let j = 0; j < 8; j++) v = (v<<1)|(bits[i+j]||0); cw.push(v);
+  }
+
+  // RS encode
+  function rsEnc(data, ecLen) {
+    let gen = [1];
+    for (let i = 0; i < ecLen; i++) {
+      const t = [1, EXP[i]], p = new Array(gen.length+1).fill(0);
+      for (let a = 0; a < gen.length; a++)
+        for (let b = 0; b < t.length; b++) p[a+b] ^= gm(gen[a], t[b]);
+      gen = p;
+    }
+    const msg = [...data, ...new Array(ecLen).fill(0)];
+    for (let i = 0; i < data.length; i++) {
+      if (!msg[i]) continue;
+      const c = LOG[msg[i]];
+      for (let j = 0; j < gen.length; j++) msg[i+j] ^= gm(gen[j], EXP[c]);
+    }
+    return msg.slice(data.length);
+  }
+
+  // Interleave
+  let off2 = 0;
+  const dcB = [], ecB = [];
+  for (let b = 0; b < g1n; b++) { const d = cw.slice(off2, off2+g1d); dcB.push(d); ecB.push(rsEnc(d, ecpb)); off2+=g1d; }
+  for (let b = 0; b < g2n; b++) { const d = cw.slice(off2, off2+g2d); dcB.push(d); ecB.push(rsEnc(d, ecpb)); off2+=g2d; }
+  const fin = [];
+  const mxd = Math.max(...dcB.map(b=>b.length));
+  for (let i = 0; i < mxd; i++) for (const b of dcB) if (i < b.length) fin.push(b[i]);
+  for (let i = 0; i < ecpb; i++) for (const b of ecB) if (i < b.length) fin.push(b[i]);
+
+  // Data bits stream
+  const db = [];
+  for (const byte of fin) for (let i = 7; i >= 0; i--) db.push((byte>>i)&1);
+  const REM = [0,0,7,7,7,7,7,0,0,0];
+  for (let i = 0; i < (REM[ver]||0); i++) db.push(0);
+
+  // Module grid
+  const N = ver*4+17;
+  const mod = Array.from({length:N}, ()=>new Uint8Array(N));
+  const res = Array.from({length:N}, ()=>new Uint8Array(N));
+  const sm = (r,c,v,rs=false) => { if(r<0||r>=N||c<0||c>=N)return; mod[r][c]=v; if(rs)res[r][c]=1; };
+
+  // Finder patterns
+  const fp = (tr,tc) => {
+    for (let r=-1;r<=7;r++) for (let c=-1;c<=7;c++) {
+      if (r<0||r==7||c<0||c==7) { sm(tr+r,tc+c,0,true); continue; }
+      sm(tr+r,tc+c,r==0||r==6||c==0||c==6||(r>=2&&r<=4&&c>=2&&c<=4)?1:0,true);
+    }
+  };
+  fp(0,0); fp(0,N-7); fp(N-7,0);
+
+  // Timing
+  for (let i=8;i<N-8;i++) { sm(6,i,i%2?0:1,true); sm(i,6,i%2?0:1,true); }
+
+  // Dark module
+  sm(N-8,8,1,true);
+
+  // Format placeholder
+  for (let i=0;i<9;i++) { if(!res[i][8])res[i][8]=1; if(!res[8][i])res[8][i]=1; }
+  for (let i=0;i<8;i++) { res[8][N-8+i]=1; res[N-8+i][8]=1; }
+
+  // Alignment patterns
+  const AP=[[],[],[6,18],[6,22],[6,26],[6,30],[6,34],[6,22,38],[6,24,42],[6,26,46],[6,28,50]];
+  for (const r of AP[ver]||[]) for (const c of AP[ver]||[]) {
+    if (res[r][c]) continue;
+    for (let dr=-2;dr<=2;dr++) for (let dc=-2;dc<=2;dc++)
+      sm(r+dr,c+dc,Math.abs(dr)==2||Math.abs(dc)==2||(dr==0&&dc==0)?1:0,true);
+  }
+
+  // Place data bits — mask pattern 2 (col%3===0)
+  let bit=0, up=true;
+  for (let right=N-1;right>=1;right-=2) {
+    if (right===6) right=5;
+    for (let vert=0;vert<N;vert++) {
+      const row=up?N-1-vert:vert;
+      for (let d=0;d<2;d++) {
+        const col=right-d;
+        if (res[row][col]) continue;
+        const b=bit<db.length?db[bit++]:0;
+        mod[row][col]=b^(col%3===0?1:0);
+      }
+    }
+    up=!up;
+  }
+
+  // Format info (M=01, mask=2=010) → BCH(15,5)
+  const BCH = d => {
+    let r=d<<10;
+    for (let i=14;i>=10;i--) if((r>>i)&1) r^=0x537<<(i-10);
+    return ((d<<10)|r)^0b101010000010010;
+  };
+  const fmt=BCH(0b01_010);
+  const FS1=[[8,0],[8,1],[8,2],[8,3],[8,4],[8,5],[8,7],[8,8],[7,8],[5,8],[4,8],[3,8],[2,8],[1,8],[0,8]];
+  const FS2=[[8,N-1],[8,N-2],[8,N-3],[8,N-4],[8,N-5],[8,N-6],[8,N-7],[N-8,8],[N-7,8],[N-6,8],[N-5,8],[N-4,8],[N-3,8],[N-2,8],[N-1,8]];
+  for (let i=0;i<15;i++) {
+    const b=(fmt>>(14-i))&1;
+    mod[FS1[i][0]][FS1[i][1]]=b;
+    mod[FS2[i][0]][FS2[i][1]]=b;
+  }
+
+  return mod;
+}
+</script>
