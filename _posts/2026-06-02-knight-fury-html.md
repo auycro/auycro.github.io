@@ -25,5 +25,5 @@ Here are some things I learned:
 
 You can try the game here :)
 
-https://auycro.itch.io/knights-fury
+[https://auycro.itch.io/knights-fury](https://auycro.itch.io/knights-fury)
 
